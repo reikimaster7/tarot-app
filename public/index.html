@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔮 タロット占い 🔮</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+
+<body>
+
+<header>
+  <h1>🔮 タロット占い 🔮</h1>
+
+<h2>🔮 総合メッセージ</h2>
+<p id="summary"></p>
+
+
+</header>
+
+
+
+
+<main>
+
+  <!-- 👇 ここに追加 -->
+  <div id="questionArea">
+    <input id="questionInput" type="text" placeholder="悩みや質問を入力してください…">
+  </div>
+
+  <button id="drawBtn" type="button">占う</button>
+
+  <div id="result"></div>
+
+</main>
+
+
+<!-- モーダル -->
+<div id="modal">
+  <div id="modalContent">
+    <img id="modalImg" alt="タロットカード">
+    <h2 id="modalName"></h2>
+    <p id="modalText"></p>
+    <button id="closeBtn" type="button">閉じる</button>
+  </div>
+</div>
+
+</body>
+</html>
