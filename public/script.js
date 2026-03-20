@@ -76,7 +76,7 @@ async function getFinalReading(results){
 
 } // ← ⭐これ重要
 
-drawBtn.disabled = true;
+// drawBtn.disabled = true;
 
 // ===== 占い =====
 let isDrawing = false;
@@ -158,7 +158,7 @@ function drawThree(){
   // 👇 これ追加！！！！！！！！
   isDrawing = false;
 
-  drawBtn.disabled = false;
+  //drawBtn.disabled = false;
 
 }, 3000);
 
