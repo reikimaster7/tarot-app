@@ -83,6 +83,7 @@ function drawThree(){
     draw.forEach((card,index)=>{
 
       setTimeout(()=>{
+        console.log("カード処理", index);
 
         const isReversed = Math.random() < 0.5;
         results.push({ card, isReversed });
@@ -111,6 +112,9 @@ function drawThree(){
 
     // ===== AI =====
     setTimeout(async ()=>{
+
+
+   console.log("🔥 AIゾーン来た");
 
   const summary = document.createElement("div");
   summary.innerHTML = `
