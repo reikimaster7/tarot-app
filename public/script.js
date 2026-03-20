@@ -82,6 +82,9 @@ drawBtn.disabled = true;
 let isDrawing = false;
 
 function drawThree(){
+
+  console.log("ボタン押された"); // ← これ追加
+  
   if(isDrawing) return;
   isDrawing = true;
 
