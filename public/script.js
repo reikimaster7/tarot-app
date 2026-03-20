@@ -76,6 +76,7 @@ async function getFinalReading(results){
 
 } // ← ⭐これ重要
 
+drawBtn.disabled = true;
 
 // ===== 占い =====
 let isDrawing = false;
@@ -150,6 +151,11 @@ function drawThree(){
   }catch(e){
     console.log(e);
   }
+
+  // 👇 これ追加！！！！！！！！
+  isDrawing = false;
+
+  drawBtn.disabled = false;
 
 }, 3000);
 
