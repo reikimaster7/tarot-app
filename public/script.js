@@ -153,6 +153,8 @@ function drawThree(){
 
 }, 3000);
 
+  }, 1000);   
+}
 
 
 
