@@ -10,7 +10,7 @@ app.use(express.json());
 import dotenv from "dotenv";
 dotenv.config();
 
-console.log("APIキー:", process.env.OPENAI_API_KEY);
+
 
 
 // ⭐ OpenAI設定
