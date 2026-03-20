@@ -58,7 +58,7 @@ ${cards.map(c =>
 
   }catch(e){
     console.error(e);
-    res.status(500).json({ message: "AIエラー" });
+    //res.status(500).json({ message: "AIエラー" });
 
      // 👇 仮メッセージ (AI課金待ち)
   res.json({
