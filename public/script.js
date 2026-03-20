@@ -139,7 +139,8 @@ function drawThree(){
 
         const aiMessage = await getFinalReading(results);
 
-        document.getElementById("loading").textContent = aiMessage;
+        const el = document.getElementById("loading");
+        typeText(el, aiMessage, 40);
 
       }catch(e){
         summary.innerHTML += `<p>⚠️ AI取得エラー</p>`;
@@ -154,6 +155,21 @@ function drawThree(){
 }
 
 
+//
+function typeText(element, text, speed = 50){
+  let i = 0;
+  element.textContent = "";
+
+  function typing(){
+    if(i < text.length){
+      element.textContent += text.charAt(i);
+      i++;
+      setTimeout(typing, speed);
+    }
+  }
+
+  typing();
+}
 
 // ===== モーダル =====
 function openModal(card, isReversed){
