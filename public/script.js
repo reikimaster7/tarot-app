@@ -111,23 +111,30 @@ function drawThree(){
 
     // ===== AI =====
     setTimeout(async ()=>{
-      try{
-        const aiMessage = await getFinalReading(results);
 
-        const summary = document.createElement("div");
-        summary.innerHTML = `
-          <h2>🔮 総合リーディング</h2>
-          <p>${aiMessage}</p>
-        `;
-        resultEl.appendChild(summary);
+  const summary = document.createElement("div");
+  summary.innerHTML = `
+    <h2>🔮 総合リーディング</h2>
+    <p>✨ AIが読み解いています...</p>
+  `;
+  resultEl.appendChild(summary);
 
-      }catch(e){
-        console.log(e);
-      }
+  try{
+    const aiMessage = await getFinalReading(results);
 
-      isDrawing = false;
+    summary.innerHTML = `
+      <h2>🔮 総合リーディング</h2>
+      <p>${aiMessage}</p>
+    `;
 
-    }, 2500);
+  }catch(e){
+    summary.innerHTML += `<p>⚠️ AI取得エラー</p>`;
+    console.log(e);
+  }
+
+  isDrawing = false;
+
+}, 2500);
 
   }, 1000);
 }
