@@ -5,23 +5,6 @@ const app = express();
 
 // ミドルウェア
 
-import express from "express";
-import cors from "cors";
-
-
-
-app.use(cors());
-app.use(express.json());
-
-// ⭐ これ絶対必要
-app.post("/api/tarot", (req, res) => {
-  console.log("受信:", req.body);
-
-  res.json({
-    message: "🔮 あなたの未来は良い流れにあります。自信を持って進んでください。"
-  });
-});
-
 
 import express from "express";
 import cors from "cors";
