@@ -120,7 +120,7 @@ function drawThree(){
       const summary = document.createElement("div");
       summary.innerHTML = `
         <h2>🔮 総合リーディング</h2>
-        <p>✨ AIが読み解いています...</p>
+       <p>✨ AIが読み解いています<span class="dots">...</span></p>
       `;
       resultEl.appendChild(summary);
 
