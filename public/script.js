@@ -148,8 +148,8 @@ function drawThree(){
     const resultElText = document.getElementById("resultText");
 
     loadingEl.style.display = "none";
-
-    typeText(resultElText, aiMessage, 40);
+    document.getElementById("loading").textContent = aiMessage;
+    //typeText(resultElText, aiMessage, 40);
 
   }catch(e){
     console.log(e);
@@ -169,20 +169,20 @@ function drawThree(){
 
 
 //
-function typeText(element, text, speed = 50){
-  let i = 0;
-  element.textContent = "";
+//function typeText(element, text, speed = 50){
+//  let i = 0;
+//  element.textContent = "";
+//
+  //function typing(){
+    //if(i < text.length){
+      //element.textContent += text.charAt(i);
+      //i++;
+      //setTimeout(typing, speed);
+    //}
+  //}
 
-  function typing(){
-    if(i < text.length){
-      element.textContent += text.charAt(i);
-      i++;
-      setTimeout(typing, speed);
-    }
-  }
-
-  typing();
-}
+  //typing();
+//}
 
 
 // ===== モーダル =====
