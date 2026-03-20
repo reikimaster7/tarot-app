@@ -178,6 +178,9 @@ app.post("/api/tarot", (req, res) => {
   res.json({ message: "テストメッセージ" });
 });
 
+
+
+
 // ===== モーダル =====
 function openModal(card, isReversed){
   modalEl.classList.add("active");
