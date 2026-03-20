@@ -148,7 +148,10 @@ function drawThree(){
     const resultElText = document.getElementById("resultText");
 
     loadingEl.style.display = "none";
-    document.getElementById("loading").textContent = aiMessage;
+resultElText.textContent = aiMessage;
+    
+    //loadingEl.style.display = "none";
+    //document.getElementById("loading").textContent = aiMessage;
     //typeText(resultElText, aiMessage, 40);
 
   }catch(e){
