@@ -59,6 +59,13 @@ ${cards.map(c =>
   }catch(e){
     console.error(e);
     res.status(500).json({ message: "AIエラー" });
+
+     // 👇 仮メッセージ (AI課金待ち)
+  res.json({
+    message: "🔮 今は大きな転機の中にいます。焦らず、自分の直感を信じてください。"
+      });
+
+
   }
 });
 
