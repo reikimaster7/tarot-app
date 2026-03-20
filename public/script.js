@@ -149,7 +149,7 @@ function drawThree(){
 
   isDrawing = false;
 
-}, 3000);
+}, 3000););}
 
 
 // ===== モーダル =====
