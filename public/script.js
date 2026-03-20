@@ -50,7 +50,7 @@ async function getFinalReading(results){
 
   console.log("送信前");
 
-  const res = await fetch("/api/tarot", {
+  const res = await fetch(fetch("http://localhost:3000/api/tarot", ...), {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
