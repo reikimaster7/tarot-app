@@ -178,17 +178,6 @@ function drawThree(){
 //
 console.log("JS読み込みOK");
 
-// ===== DOM =====
-
-const drawBtn = document.getElementById("drawBtn");
-
-const modalEl = document.getElementById("modal");
-const modalImg = document.getElementById("modalImg");
-const modalName = document.getElementById("modalName");
-const modalText = document.getElementById("modalText");
-const closeBtn = document.getElementById("closeBtn");
-
-const questionInput = document.getElementById("questionInput");
 
 // ===== カード =====
 const cards = [
