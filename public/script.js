@@ -1,4 +1,5 @@
 console.log("JS読み込みOK");
+alert("ここ読んでる？");
 
 // ===== DOM =====
 const resultEl = document.getElementById("result");
