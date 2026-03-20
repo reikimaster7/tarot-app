@@ -119,44 +119,37 @@ function drawThree(){
     });
 
     // ✅ 全部終わるのを待つ（ここが重要）
+
+
+
     setTimeout(async ()=>{
 
-      console.log("🔥 AIゾーン来た");
+  console.log("🔥 AIゾーン来た");
 
-      
-  
-      const summary = document.createElement("div");
-      summary.innerHTML = `
-        <h2>🔮 総合リーディング</h2>
-        <p>✨ AIが読み解いています...</p>
-      `;
-      resultEl.appendChild(summary);
+  const summary = document.createElement("div");
+  summary.innerHTML = `
+    <h2>🔮 総合リーディング</h2>
+    <p id="loading">✨ AIが読み解いています...</p>
+  `;
+  resultEl.appendChild(summary);
 
-      // 少し待つ
-　　　　　await new Promise(r => setTimeout(r, 800));
+  try{
+    // 少し待つ
+    await new Promise(r => setTimeout(r, 800));
 
-　　　　　const aiMessage = await getFinalReading(results);
+    const aiMessage = await getFinalReading(results);
 
-　　　　　document.getElementById("loading").textContent = aiMessage;
+    // ここで書き換え
+    document.getElementById("loading").textContent = aiMessage;
 
-      try{
-        const aiMessage = await getFinalReading(results);
+  }catch(e){
+    summary.innerHTML += `<p>⚠️ AI取得エラー</p>`;
+    console.log(e);
+  }
 
-        summary.innerHTML = `
-          <h2>🔮 総合リーディング</h2>
-          <p>${aiMessage}</p>
-        `;
-      }catch(e){
-        summary.innerHTML += `<p>⚠️ AI取得エラー</p>`;
-        console.log(e);
-      }
+  isDrawing = false;
 
-      isDrawing = false;
-
-    }, 3000); // ← ★ここ超重要（3枚全部待つ）
-
-  }, 1000);
-}
+}, 3000);
 
 
 // ===== モーダル =====
