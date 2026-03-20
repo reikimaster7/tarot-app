@@ -11,16 +11,7 @@ const modalName = document.getElementById("modalName");
 const modalText = document.getElementById("modalText");
 const closeBtn = document.getElementById("closeBtn");
 
-const loadingEl = document.getElementById("loading");
-const resultElText = document.getElementById("resultText");
 
-const aiMessage = await getFinalReading(results);
-
-// ローディング消す
-loadingEl.style.display = "none";
-
-// 結果をタイプ表示
-typeText(resultElText, aiMessage, 40);
 
 // ===== カード =====
 const cards = [
@@ -134,37 +125,33 @@ function drawThree(){
 
 
 
-        setTimeout(async ()=>{
+      setTimeout(async ()=>{
 
-      console.log("🔥 AIゾーン来た");
+  console.log("🔥 AIゾーン来た");
 
-      const summary = document.createElement("div");
-summary.innerHTML = `
-  <h2>🔮 総合リーディング</h2>
-  <p id="loading">✨ AIが読み解いています...</p>
-  <p id="resultText"></p>
-`;
-resultEl.appendChild(summary);
+  const summary = document.createElement("div");
+  summary.innerHTML = `
+    <h2>🔮 総合リーディング</h2>
+    <p id="loading">✨ AIが読み解いています...</p>
+    <p id="resultText"></p>
+  `;
+  resultEl.appendChild(summary);
 
-      try{
-        await new Promise(r => setTimeout(r, 800));
+  try{
+    const aiMessage = await getFinalReading(results);
 
-        const aiMessage = await getFinalReading(results);
+    const loadingEl = document.getElementById("loading");
+    const resultElText = document.getElementById("resultText");
 
-        const el = document.getElementById("loading");
-        typeText(el, aiMessage, 40);
+    loadingEl.style.display = "none";
 
-      }catch(e){
-        summary.innerHTML += `<p>⚠️ AI取得エラー</p>`;
-        console.log(e);
-      }
+    typeText(resultElText, aiMessage, 40);
 
-      isDrawing = false;
+  }catch(e){
+    console.log(e);
+  }
 
-    }, 3000);
-
-  }, 1000);
-}
+}, 3000);
 
 
 
