@@ -181,25 +181,29 @@ console.log("JS読み込みOK");
 
 // ===== カード =====
 
+
+
+const cards = [
 {
-name:"愚者",
-img:"images/major_01_fool.png",
-up:"新しい始まりの時です。",
-rev:"軽率な行動に注意。"
+  name:"愚者",
+  img:"images/major_01_fool.png",
+  up:"新しい始まりの時です。",
+  rev:"軽率に注意。"
 },
 {
-name:"魔術師",
-img:"images/major_02_magician.png",
-up:"すべてを実現する力があります。",
-rev:"自信のなさに注意。"
-},
+  name:"魔術師",
+  img:"images/major_02_magician.png",
+  up:"チャンスを掴めます。",
+  rev:"迷いあり。"
+}
+]
+
 {
 name:"女教皇",
 img:"images/major_03_high_priestess.png",
 up:"直感が冴えています。",
 rev:"迷いが生じています。"
-}
-];
+};
 
 // ===== 音 =====
 const shuffleSound = new Audio("sounds/shuffle.mp3");
