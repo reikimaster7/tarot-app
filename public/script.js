@@ -143,17 +143,7 @@ function drawThree(){
 }
 
 
-  }catch(e){
-    summary.innerHTML += `<p>⚠️ AI取得エラー</p>`;
-    console.log(e);
-  }
 
-  isDrawing = false;
-
-}, 2500);
-
-  }, 1000);
-}
 
 // ===== モーダル =====
 function openModal(card, isReversed){
