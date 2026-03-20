@@ -180,7 +180,7 @@ console.log("JS読み込みOK");
 
 
 // ===== カード =====
-const cards = [
+
 {
 name:"愚者",
 img:"images/major_01_fool.png",
