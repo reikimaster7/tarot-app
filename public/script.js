@@ -162,7 +162,7 @@ resultElText.innerHTML = `
     //document.getElementById("loading").textContent = aiMessage;
     //typeText(resultElText, aiMessage, 40);
 
-    const loadingEl = document.getElementById("loading");
+    //const loadingEl = document.getElementById("loading");
 
 if(loadingEl){
   loadingEl.remove(); // ← 完全削除
