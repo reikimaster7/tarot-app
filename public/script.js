@@ -46,7 +46,11 @@ function shuffle(array){
 // ===== AI通信 =====
 console.log("送信前");
 
-const res = await fetch("/api/tarot", {
+async function getFinalReading(results){
+
+  console.log("送信前");
+
+  const res = await fetch("/api/tarot", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
