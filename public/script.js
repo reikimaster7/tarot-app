@@ -80,6 +80,7 @@ function drawThree(){
     const draw = shuffle(cards).slice(0,3);
     const positions = ["過去","現在","未来"];
 
+    // 👇 ここが抜けてた！！！！
     draw.forEach((card,index)=>{
 
       setTimeout(()=>{
@@ -113,23 +114,34 @@ function drawThree(){
     // ===== AI =====
     setTimeout(async ()=>{
 
+      console.log("🔥 AIゾーン来た");
 
-   console.log("🔥 AIゾーン来た");
+      const summary = document.createElement("div");
+      summary.innerHTML = `
+        <h2>🔮 総合リーディング</h2>
+        <p>✨ AIが読み解いています...</p>
+      `;
+      resultEl.appendChild(summary);
 
-  const summary = document.createElement("div");
-  summary.innerHTML = `
-    <h2>🔮 総合リーディング</h2>
-    <p>✨ AIが読み解いています...</p>
-  `;
-  resultEl.appendChild(summary);
+      try{
+        const aiMessage = await getFinalReading(results);
 
-  try{
-    const aiMessage = await getFinalReading(results);
+        summary.innerHTML = `
+          <h2>🔮 総合リーディング</h2>
+          <p>${aiMessage}</p>
+        `;
+      }catch(e){
+        summary.innerHTML += `<p>⚠️ AI取得エラー</p>`;
+        console.log(e);
+      }
 
-    summary.innerHTML = `
-      <h2>🔮 総合リーディング</h2>
-      <p>${aiMessage}</p>
-    `;
+      isDrawing = false;
+
+    }, 3000); // ← 少し長く
+
+  }, 1000);
+}
+
 
   }catch(e){
     summary.innerHTML += `<p>⚠️ AI取得エラー</p>`;
