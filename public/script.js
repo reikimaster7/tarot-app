@@ -93,11 +93,9 @@ function drawThree(){
     const draw = shuffle(cards).slice(0,3);
     const positions = ["過去","現在","未来"];
 
-    // 👇 ここが抜けてた！！！！
     draw.forEach((card,index)=>{
 
       setTimeout(()=>{
-        console.log("カード処理", index);
 
         const isReversed = Math.random() < 0.5;
         results.push({ card, isReversed });
@@ -117,44 +115,41 @@ function drawThree(){
 
         resultEl.appendChild(cardEl);
 
-        cardEl.addEventListener("click", ()=>{
-          openModal(card, isReversed);
-        });
+        // 👉 最後のカードのときだけAI起動
+        if(index === 2){
+          setTimeout(async ()=>{
+
+            console.log("🔥 AIゾーン来た");
+
+            const summary = document.createElement("div");
+            summary.innerHTML = `
+              <h2>🔮 総合リーディング</h2>
+              <p>✨ AIが読み解いています...</p>
+            `;
+            resultEl.appendChild(summary);
+
+            try{
+              const aiMessage = await getFinalReading(results);
+
+              summary.innerHTML = `
+                <h2>🔮 総合リーディング</h2>
+                <p>${aiMessage}</p>
+              `;
+            }catch(e){
+              summary.innerHTML += `<p>⚠️ AI取得エラー</p>`;
+              console.log(e);
+            }
+
+            isDrawing = false;
+
+          }, 800); // 少し待つ
+        }
 
       }, index * 800);
     });
 
-    // ===== AI =====
-    setTimeout(async ()=>{
-
-      console.log("🔥 AIゾーン来た");
-
-      const summary = document.createElement("div");
-      summary.innerHTML = `
-        <h2>🔮 総合リーディング</h2>
-       <p>✨ AIが読み解いています<span class="dots">...</span></p>
-      `;
-      resultEl.appendChild(summary);
-
-      try{
-        const aiMessage = await getFinalReading(results);
-
-        summary.innerHTML = `
-          <h2>🔮 総合リーディング</h2>
-          <p>${aiMessage}</p>
-        `;
-      }catch(e){
-        summary.innerHTML += `<p>⚠️ AI取得エラー</p>`;
-        console.log(e);
-      }
-
-      isDrawing = false;
-
-    }, 3000); // ← 少し長く
-
   }, 1000);
 }
-
 
 
 
