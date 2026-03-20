@@ -44,8 +44,9 @@ function shuffle(array){
 }
 
 // ===== AI通信 =====
-async function getFinalReading(results){
-  const res = await fetch("http://localhost:3000/api/tarot", {
+console.log("送信前");
+
+const res = await fetch("/api/tarot", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -59,9 +60,14 @@ async function getFinalReading(results){
     })
   });
 
+  console.log("レスポンス来た", res);
+
   const data = await res.json();
+
+  console.log("中身", data);
+
   return data.message;
-}
+
 
 // ===== 占い =====
 let isDrawing = false;
