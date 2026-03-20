@@ -53,7 +53,8 @@ function shuffle(array){
 
 // ===== AI通信 =====
 async function getFinalReading(results){
-  const res = await fetch("/api/tarot", {
+  fetch("http://localhost:3000/api/tarot", {
+    
     method: "POST",
     headers: {
       "Content-Type": "application/json"
