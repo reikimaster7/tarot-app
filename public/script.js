@@ -117,39 +117,42 @@ function drawThree(){
 
       }, index * 800);
     });
+  
 
     // ✅ 全部終わるのを待つ（ここが重要）
 
 
 
-    setTimeout(async ()=>{
+        setTimeout(async ()=>{
 
-  console.log("🔥 AIゾーン来た");
+      console.log("🔥 AIゾーン来た");
 
-  const summary = document.createElement("div");
-  summary.innerHTML = `
-    <h2>🔮 総合リーディング</h2>
-    <p id="loading">✨ AIが読み解いています...</p>
-  `;
-  resultEl.appendChild(summary);
+      const summary = document.createElement("div");
+      summary.innerHTML = `
+        <h2>🔮 総合リーディング</h2>
+        <p id="loading">✨ AIが読み解いています...</p>
+      `;
+      resultEl.appendChild(summary);
 
-  try{
-    // 少し待つ
-    await new Promise(r => setTimeout(r, 800));
+      try{
+        await new Promise(r => setTimeout(r, 800));
 
-    const aiMessage = await getFinalReading(results);
+        const aiMessage = await getFinalReading(results);
 
-    // ここで書き換え
-    document.getElementById("loading").textContent = aiMessage;
+        document.getElementById("loading").textContent = aiMessage;
 
-  }catch(e){
-    summary.innerHTML += `<p>⚠️ AI取得エラー</p>`;
-    console.log(e);
-  }
+      }catch(e){
+        summary.innerHTML += `<p>⚠️ AI取得エラー</p>`;
+        console.log(e);
+      }
 
-  isDrawing = false;
+      isDrawing = false;
 
-}, 3000););}
+    }, 3000);
+
+  }, 1000);
+}
+
 
 
 // ===== モーダル =====
