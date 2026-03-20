@@ -12,6 +12,9 @@ const closeBtn = document.getElementById("closeBtn");
 
 const questionInput = document.getElementById("questionInput");
 
+const app = express(); // ← これが最初！！
+
+
 // ===== カード =====
 const cards = [
 {
@@ -377,7 +380,27 @@ modalEl.addEventListener("click", (e)=>{
   }
 });
 
+import express from "express";
+import cors from "cors";
 
+const app = express(); // ← これが最初！！
+
+app.use(cors());
+app.use(express.json());
+
+// テストAPI
+app.post("/api/tarot", (req, res) => {
+  console.log("受信:", req.body);
+
+  res.json({
+    message: "🔮 あなたの未来は良い流れにあります。自信を持って進んでください。"
+  });
+});
+
+// 起動
+app.listen(3000, () => {
+  console.log("http://localhost:3000 で起動中");
+});
 
 
 // ===== モーダル =====
