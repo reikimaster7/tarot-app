@@ -123,12 +123,21 @@ function drawThree(){
 
       console.log("🔥 AIゾーン来た");
 
+      
+  
       const summary = document.createElement("div");
       summary.innerHTML = `
         <h2>🔮 総合リーディング</h2>
         <p>✨ AIが読み解いています...</p>
       `;
       resultEl.appendChild(summary);
+
+      // 少し待つ
+　　　　　await new Promise(r => setTimeout(r, 800));
+
+　　　　　const aiMessage = await getFinalReading(results);
+
+　　　　　document.getElementById("loading").textContent = aiMessage;
 
       try{
         const aiMessage = await getFinalReading(results);
