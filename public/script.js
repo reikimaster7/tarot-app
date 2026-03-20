@@ -11,6 +11,17 @@ const modalName = document.getElementById("modalName");
 const modalText = document.getElementById("modalText");
 const closeBtn = document.getElementById("closeBtn");
 
+const loadingEl = document.getElementById("loading");
+const resultElText = document.getElementById("resultText");
+
+const aiMessage = await getFinalReading(results);
+
+// ローディング消す
+loadingEl.style.display = "none";
+
+// 結果をタイプ表示
+typeText(resultElText, aiMessage, 40);
+
 // ===== カード =====
 const cards = [
 {
@@ -128,11 +139,12 @@ function drawThree(){
       console.log("🔥 AIゾーン来た");
 
       const summary = document.createElement("div");
-      summary.innerHTML = `
-        <h2>🔮 総合リーディング</h2>
-        <p id="loading">✨ AIが読み解いています...</p>
-      `;
-      resultEl.appendChild(summary);
+summary.innerHTML = `
+  <h2>🔮 総合リーディング</h2>
+  <p id="loading">✨ AIが読み解いています...</p>
+  <p id="resultText"></p>
+`;
+resultEl.appendChild(summary);
 
       try{
         await new Promise(r => setTimeout(r, 800));
@@ -155,6 +167,8 @@ function drawThree(){
 }
 
 
+
+
 //
 function typeText(element, text, speed = 50){
   let i = 0;
@@ -170,6 +184,7 @@ function typeText(element, text, speed = 50){
 
   typing();
 }
+
 
 // ===== モーダル =====
 function openModal(card, isReversed){
