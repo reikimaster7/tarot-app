@@ -179,7 +179,7 @@ function drawThree(){
 console.log("JS読み込みOK");
 
 // ===== DOM =====
-const resultEl = document.getElementById("result");
+
 const drawBtn = document.getElementById("drawBtn");
 
 const modalEl = document.getElementById("modal");
