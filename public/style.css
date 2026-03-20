@@ -6,6 +6,12 @@ body {
   padding: 20px;
 }
 
+
+body {
+  background: radial-gradient(circle at center, #1a002f, #000);
+  color: white;
+}
+
 /* タイトル */
 h1 {
   font-size: 32px;
@@ -139,6 +145,21 @@ h1 {
   background: linear-gradient(45deg, #6b00ff, #2b0050);
   border-radius: 15px;
 }
+
+
+.card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardFade 0.6s ease forwards;
+}
+
+@keyframes cardFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 
 /* ===== 光エフェクト ===== */

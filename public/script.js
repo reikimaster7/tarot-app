@@ -147,8 +147,14 @@ function drawThree(){
     const loadingEl = document.getElementById("loading");
     const resultElText = document.getElementById("resultText");
 
-    loadingEl.style.display = "none";
-resultElText.textContent = aiMessage;
+   // loadingEl.style.display = "none";
+//resultElText.textContent = aiMessage;
+
+loadingEl.style.display = "none";
+
+resultElText.innerHTML = `
+  <span class="fade-in">${aiMessage}</span>
+`;
     
     //loadingEl.style.display = "none";
     //document.getElementById("loading").textContent = aiMessage;

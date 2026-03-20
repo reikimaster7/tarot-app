@@ -11,6 +11,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 
+await new Promise(r => setTimeout(r, 1500));
 
 
 // ⭐ OpenAI設定
