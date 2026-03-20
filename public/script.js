@@ -12,7 +12,7 @@ const closeBtn = document.getElementById("closeBtn");
 
 const questionInput = document.getElementById("questionInput");
 
-const app = express(); // ← これが最初！！
+
 
 
 // ===== カード =====
@@ -383,7 +383,8 @@ modalEl.addEventListener("click", (e)=>{
 import express from "express";
 import cors from "cors";
 
-const app = express(); // ← これが最初！！
+
+const app = express();
 
 app.use(cors());
 app.use(express.json());
