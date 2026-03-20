@@ -148,6 +148,8 @@ function drawThree(){
     const resultElText = document.getElementById("resultText");
 
    // loadingEl.style.display = "none";
+
+
 //resultElText.textContent = aiMessage;
 
 loadingEl.style.display = "none";
@@ -159,6 +161,12 @@ resultElText.innerHTML = `
     //loadingEl.style.display = "none";
     //document.getElementById("loading").textContent = aiMessage;
     //typeText(resultElText, aiMessage, 40);
+
+    const loadingEl = document.getElementById("loading");
+
+if(loadingEl){
+  loadingEl.remove(); // ← 完全削除
+}
 
   }catch(e){
     console.log(e);
