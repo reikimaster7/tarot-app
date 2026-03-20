@@ -72,6 +72,8 @@ async function getFinalReading(results){
 
   return data.message;
 
+} // ← ⭐これ重要
+
 
 // ===== 占い =====
 let isDrawing = false;
