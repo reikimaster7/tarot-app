@@ -159,6 +159,30 @@ function shuffle(array){
   return arr;
 }
 
+
+// ===== 
+function getToday(){
+  const now = new Date();
+  return now.toISOString().split("T")[0];
+}
+
+function canUseFree(){
+  const lastDate = localStorage.getItem("lastUsedDate");
+  const today = getToday();
+  return lastDate !== today;
+}
+
+function saveUsed(){
+  localStorage.setItem("lastUsedDate", getToday());
+}
+
+function showAdOrPay(){
+  const adModal = document.getElementById("adModal");
+  adModal.classList.remove("hidden");
+}
+
+
+
 // ===== AI通信 =====
 console.log("送信前");
 
@@ -198,6 +222,20 @@ let isDrawing = false;
 function drawThree(){
 
   console.log("ボタン押された"); // ← これ追加
+
+
+   // 👇 一番上に追加 回数制限
+  if(!canUseFree()){
+    showAdOrPay();
+    return;
+  }
+
+  saveUsed(); // ← ここも大事
+
+  if(isDrawing) return;
+  isDrawing = true;
+//   回数制限ロジック　終わり
+
   
   if(isDrawing) return;
   isDrawing = true;
@@ -331,3 +369,23 @@ function closeModal(){
 // ===== イベント =====
 drawBtn.addEventListener("click", drawThree);
 closeBtn.addEventListener("click", closeModal);
+
+
+// ===== 広告視聴 =====
+
+const watchAdBtn = document.getElementById("watchAdBtn");
+const adModal = document.getElementById("adModal");
+
+watchAdBtn.addEventListener("click", async ()=>{
+
+  watchAdBtn.textContent = "広告再生中...";
+  watchAdBtn.disabled = true;
+
+  await new Promise(r => setTimeout(r, 3000));
+
+  // 👇 制限解除
+  localStorage.removeItem("lastUsedDate");
+
+  adModal.classList.add("hidden");
+
+});
