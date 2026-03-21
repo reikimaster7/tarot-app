@@ -233,9 +233,8 @@ function drawThree(){
 
  console.log("ボタン押された")
 
-  drawBtn.addEventListener("click", () => {
-  console.log("ボタン押された");
-});
+
+}
 
    // 👇 一番上に追加 回数制限
   if(!canUseFree()){
