@@ -89,6 +89,9 @@ const adModal = document.getElementById("adModal");
 
 function showAdOrPay(){
   if(adModal){
-    adModal.classList.remove("hidden");
+
+    adModal.classList.add("active");   // 表示
+　　adModal.classList.remove("active"); // 非表示
+
   }
 }
