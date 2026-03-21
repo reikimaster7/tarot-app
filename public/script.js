@@ -11,11 +11,13 @@ const modalName = document.getElementById("modalName");
 const modalText = document.getElementById("modalText");
 const closeBtn = document.getElementById("closeBtn");
 
+
+
 // ===== 広告視聴用のワーク　=====
 
-const watchAdBtn = document.getElementById("watchAdBtn");
 const adModal = document.getElementById("adModal");
-
+const watchAdBtn = document.getElementById("watchAdBtn");
+const closeAdBtn = document.getElementById("closeAdBtn");
 
 
 // ===== カード =====
