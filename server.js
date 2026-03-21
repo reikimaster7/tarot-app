@@ -74,3 +74,12 @@ ${cards.map(c =>
 app.listen(3000, () => {
   console.log("http://localhost:3000 起動中");
 });
+
+
+const watchAdBtn = document.getElementById("watchAdBtn");
+
+console.log(watchAdBtn); // ← ここはJSに書く
+
+watchAdBtn.addEventListener("click", () => {
+  alert("広告を再生（仮）");
+});
