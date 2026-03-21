@@ -226,8 +226,11 @@ let isDrawing = false;
 
 function drawThree(){
 
-  console.log("ボタン押された"); // ← これ追加
+ 
 
+  drawBtn.addEventListener("click", () => {
+  console.log("ボタン押された");
+});
 
    // 👇 一番上に追加 回数制限
   if(!canUseFree()){
