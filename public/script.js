@@ -231,8 +231,6 @@ let isDrawing = false;
 
 function drawThree(){
 
-
-
   console.log("ボタン押された");
 
   // 👇 ここに入れる！！！
@@ -240,7 +238,6 @@ function drawThree(){
     showAdOrPay();
     return;
   }
-
   saveUsed(); // ← ここも大事
 
   if(isDrawing) return;
