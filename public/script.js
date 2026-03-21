@@ -231,12 +231,11 @@ let isDrawing = false;
 
 function drawThree(){
 
- console.log("ボタン押された")
 
 
-}
+  console.log("ボタン押された");
 
-   // 👇 一番上に追加 回数制限
+  // 👇 ここに入れる！！！
   if(!canUseFree()){
     showAdOrPay();
     return;
@@ -246,7 +245,6 @@ function drawThree(){
 
   if(isDrawing) return;
   isDrawing = true;
-//   回数制限ロジック　終わり
 
 
 
