@@ -83,3 +83,12 @@ console.log(watchAdBtn); // ← ここはJSに書く
 watchAdBtn.addEventListener("click", () => {
   alert("広告を再生（仮）");
 });
+
+
+const adModal = document.getElementById("adModal");
+
+function showAdOrPay(){
+  if(adModal){
+    adModal.classList.remove("hidden");
+  }
+}
