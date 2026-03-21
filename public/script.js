@@ -226,9 +226,12 @@ async function getFinalReading(results){
 // ===== 占い =====
 let isDrawing = false;
 
+ drawBtn.addEventListener("click", () => {
+});
+
 function drawThree(){
 
- 
+ console.log("ボタン押された")
 
   drawBtn.addEventListener("click", () => {
   console.log("ボタン押された");
@@ -246,9 +249,7 @@ function drawThree(){
   isDrawing = true;
 //   回数制限ロジック　終わり
 
-  
-  if(isDrawing) return;
-  isDrawing = true;
+
 
   resultEl.innerHTML = "🔮 シャッフル中...";
 
