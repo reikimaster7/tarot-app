@@ -11,13 +11,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 
-summary.innerHTML = `
-  <h2>🔮 総合リーディング</h2>
-  <p id="loading">✨ AIが読み解いています<span class="dots"></span></p>
-  <p id="resultText"></p>
-`;
-
-
 await new Promise(r => setTimeout(r, 1500));
 
 
