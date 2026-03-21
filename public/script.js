@@ -234,10 +234,10 @@ function drawThree(){
   console.log("ボタン押された");
 
   // 👇 ここに入れる！！！
-  if(!canUseFree()){
-    showAdOrPay();
-    return;
-  }
+  //if(!canUseFree()){
+  //  showAdOrPay();
+  //  return;
+  //}
   saveUsed(); // ← ここも大事
 
   if(isDrawing) return;
