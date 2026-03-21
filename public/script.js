@@ -11,6 +11,11 @@ const modalName = document.getElementById("modalName");
 const modalText = document.getElementById("modalText");
 const closeBtn = document.getElementById("closeBtn");
 
+// ===== 広告視聴用のワーク　=====
+
+const watchAdBtn = document.getElementById("watchAdBtn");
+const adModal = document.getElementById("adModal");
+
 
 
 // ===== カード =====
@@ -277,6 +282,14 @@ function drawThree(){
     });
   
 
+
+    // これ追加！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+function showAdOrPay(){
+  const adModal = document.getElementById("adModal");
+  adModal.classList.remove("hidden");
+}
+
+
     // ✅ 全部終わるのを待つ（ここが重要）
 
 
@@ -373,8 +386,7 @@ closeBtn.addEventListener("click", closeModal);
 
 // ===== 広告視聴 =====
 
-const watchAdBtn = document.getElementById("watchAdBtn");
-const adModal = document.getElementById("adModal");
+
 
 watchAdBtn.addEventListener("click", async ()=>{
 
