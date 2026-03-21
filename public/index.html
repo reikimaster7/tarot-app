@@ -8,7 +8,7 @@
 <script src="script.js" defer></script>
 </head>
 
-<body>
+
 
 <header>
   <h1>🔮 タロット占い 🔮</h1>
@@ -22,23 +22,18 @@
 
 
 
+
 <main>
 
-<!-- ここに広告モーダルを追加 -->
-<div id="adModal" class="hidden">
-  <div class="adContent">
-    <p>📺 広告を見ると結果が表示されます</p>
-    
-    <button id="watchAdBtn">広告を見る</button>
-    <button id="closeAdBtn">閉じる</button>
+  <!-- ✅ 広告モーダル（これ1個だけ） -->
+  <div id="adModal" class="hidden">
+    <div class="adContent">
+      <p>📺 広告を見ると結果が表示されます</p>
+      <button id="watchAdBtn">広告を見る</button>
+      <button id="closeAdBtn">閉じる</button>
+    </div>
   </div>
-</div>
 
-
-
-
-
-  <!-- 👇 ここに追加 -->
   <div id="questionArea">
     <input id="questionInput" type="text" placeholder="悩みや質問を入力してください…">
   </div>
@@ -46,14 +41,10 @@
   <button id="drawBtn" type="button">占う</button>
 
   <div id="result"></div>
-
   <div id="adModal"></div>
 
-
-    <!-- 👇 ここに入れる！！！ -->
-  <button id="watchAdBtn">広告を見る</button>
-
 </main>
+
 
 
 <!-- <p id="loading">✨ AIが読み解いています<span class="dots"></span></p> -->
