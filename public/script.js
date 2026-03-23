@@ -318,7 +318,7 @@ function drawThree(){
   //}
 //}
 
-console.log(watchAdBtn);
+//console.log("watchAdBtn",watchAdBtn);
 
 watchAdBtn.addEventListener("click", () => {
   alert("広告を再生（仮）");
