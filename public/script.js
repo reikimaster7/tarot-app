@@ -235,12 +235,8 @@ function drawThree(){
   console.log("cards:", cards);
 console.log("adModal:", adModal);
 
-  // ⭐ ここに入れる（最初！！）
-  document.getElementById("adText").textContent = "広告を見るともう一度占えます";
-  document.getElementById("adDone").style.display = "none";
-  watchAdBtn.style.display = "block";
-  watchAdBtn.disabled = false;
-  watchAdBtn.textContent = "広告を見る";
+  // ⭐ 広告UIを即消す
+  adModal.style.display = "none";
 
 
 
@@ -322,9 +318,28 @@ console.log("pass005");
       try{
         const aiMessage = await getFinalReading(results);
 
+
+        try{
+        const aiMessage = await getFinalReading(results);
+
         document.getElementById("loading").remove();
         document.getElementById("resultText").innerHTML =
-          `<span class="fade-in">${aiMessage}</span>`;
+        `<span class="fade-in">${aiMessage}</span>`;
+
+  // =========================
+  // ⭐ AI表示後に広告UI表示
+  // =========================
+        adModal.style.display = "block";
+
+        document.getElementById("adText").textContent = "広告を見るともう一度占えます";
+        document.getElementById("adDone").style.display = "none";
+        watchAdBtn.style.display = "block";
+        watchAdBtn.disabled = false;
+        watchAdBtn.textContent = "広告を見る";
+
+      //  document.getElementById("loading").remove();
+      //  document.getElementById("resultText").innerHTML =
+      //    `<span class="fade-in">${aiMessage}</span>`;
 
 
 
