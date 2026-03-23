@@ -315,8 +315,8 @@ console.log("pass005");
       `;
       resultEl.appendChild(summary);
 
-      try{
-        const aiMessage = await getFinalReading(results);
+      //try{
+      //  const aiMessage = await getFinalReading(results);
 
 
         try{
