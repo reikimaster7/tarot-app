@@ -282,7 +282,8 @@ console.log("pass005");
       const isReversed = Math.random() < 0.5;
       results.push({ card, isReversed });
 
-      const text = isReversed ? card.rev : card.up;
+      //const text = isReversed ? card.rev : card.up;
+      const text = (isReversed ? card.rev : card.up).replace(/。/g, "。\n");
 
       const cardEl = document.createElement("div");
       cardEl.className = "card";
