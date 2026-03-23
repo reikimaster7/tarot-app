@@ -315,6 +315,17 @@ console.log("pass005");
         document.getElementById("resultText").innerHTML =
           `<span class="fade-in">${aiMessage}</span>`;
 
+
+
+      // =========================
+    　　// ⭐ ここ追加（復活処理）
+    　　// =========================
+    　　　document.getElementById("adText").textContent = "広告を見るともう一度占えます";
+    　　　document.getElementById("adDone").style.display = "none";
+    　　　watchAdBtn.style.display = "block";
+    　　　watchAdBtn.disabled = false;
+    　　　watchAdBtn.textContent = "広告を見る";    
+
       }catch(e){
         console.log(e);
       }
