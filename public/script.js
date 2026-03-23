@@ -311,8 +311,11 @@ function drawThree(){
 function showAdOrPay(){
 
   adModal.classList.remove("hidden");
-}
 
+   if(adModal){
+    adModal.classList.add("active"); // 表示だけ
+  }
+}
 
 console.log(watchAdBtn);
 
@@ -320,17 +323,6 @@ watchAdBtn.addEventListener("click", () => {
   alert("広告を再生（仮）");
 });
 
-function showAdOrPay(){
-  if(adModal){
-    adModal.classList.add("active");
-  }
-}
-
-function showAdOrPay(){
-  if(adModal){
-    adModal.classList.add("active"); // 表示だけ
-  }
-}
 
 function closeModal(){
   if(adModal){
@@ -338,19 +330,7 @@ function closeModal(){
   }
 }
 
-
     // ✅ 全部終わるのを待つ（ここが重要）
-
-
-
-const res = await fetch("/api/tarot", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ question, cards })
-});
-
-const data = await res.json();
-
 if (data.limit) {
   showAdOrPay(); // モーダル出す
 } else {
@@ -358,8 +338,7 @@ if (data.limit) {
 }
 
 
-
-      setTimeout(async ()=>{
+setTimeout(async ()=>{
 
   console.log("🔥 AIゾーン来た");
 
