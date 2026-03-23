@@ -1,14 +1,5 @@
 console.log("JS読み込みOK");
 
-  // ⭐ ここに入れる（最初！！）
-  document.getElementById("adText").textContent = "広告を見るともう一度占えます";
-  document.getElementById("adDone").style.display = "none";
-  watchAdBtn.style.display = "block";
-  watchAdBtn.disabled = false;
-  watchAdBtn.textContent = "広告を見る";
-
-
-
 
 // =========================
 // ① DOM取得
@@ -29,6 +20,14 @@ const watchAdBtn = document.getElementById("watchAdBtn");
 // =========================
 // ② 状態管理
 // =========================
+  // ⭐ ここに入れる（最初！！）
+  document.getElementById("adText").textContent = "広告を見るともう一度占えます";
+  document.getElementById("adDone").style.display = "none";
+  watchAdBtn.style.display = "block";
+  watchAdBtn.disabled = false;
+  watchAdBtn.textContent = "広告を見る";
+
+
 let isDrawing = false;
 
 
