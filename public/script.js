@@ -1,11 +1,8 @@
 console.log("JS読み込みOK");
-alert("ここ読んでる？");
 
 // =========================
 // ① DOM取得
 // =========================
-
-
 const resultEl = document.getElementById("result");
 const drawBtn = document.getElementById("drawBtn");
 
@@ -15,16 +12,14 @@ const modalName = document.getElementById("modalName");
 const modalText = document.getElementById("modalText");
 const closeBtn = document.getElementById("closeBtn");
 
-// ===== 広告視聴用のワーク　=====
-
+// 広告モーダル
 const adModal = document.getElementById("adModal");
 const watchAdBtn = document.getElementById("watchAdBtn");
-const closeAdBtn = document.getElementById("closeAdBtn");
 
 // =========================
 // ② 状態管理
 // =========================
-//let isDrawing = false;     //占いのところにあるので一旦コメントアウト
+let isDrawing = false;
 
 
 // =========================
@@ -170,7 +165,6 @@ rev:"あと一歩で完成です。最後まで努力を続けることが成功
 // =========================
 // ③ ユーティリティ
 // =========================
-// ===== シャッフル =====
 function shuffle(array){
   const arr = [...array];
   for(let i = arr.length - 1; i > 0; i--){
@@ -180,92 +174,62 @@ function shuffle(array){
   return arr;
 }
 
-
-// ===== 
 function getToday(){
-  const now = new Date();
-  return now.toISOString().split("T")[0];
+  return new Date().toISOString().split("T")[0];
 }
 
 function canUseFree(){
   const lastDate = localStorage.getItem("lastUsedDate");
-  const today = getToday();
-  return lastDate !== today;
+  return lastDate !== getToday();
 }
 
 function saveUsed(){
   localStorage.setItem("lastUsedDate", getToday());
 }
 
-//function showAdOrPay(){
-//  const adModal = document.getElementById("adModal");
-//  adModal.classList.remove("hidden");
-//}
-
+// ⭐ これがないとエラーになる
+function showAdOrPay(){
+  adModal.classList.remove("hidden");
+}
 
 // =========================
-// ④ API通信
+// ④ API
 // =========================
-console.log("送信前");
-
 async function getFinalReading(results){
-
-  console.log("送信前");
-
   const res = await fetch("http://localhost:3000/api/tarot", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
+    headers: {"Content-Type": "application/json"},
     body: JSON.stringify({
       cards: results.map((r, i)=>({
         name: r.card.name,
-        position: i === 0 ? "過去" : i === 1 ? "現在" : "未来",
+        position: ["過去","現在","未来"][i],
         isReversed: r.isReversed
       }))
     })
   });
 
-  console.log("レスポンス来た", res);
-
   const data = await res.json();
-
-  console.log("中身", data);
-
   return data.message;
-
-} // ← ⭐これ重要
-
-// drawBtn.disabled = true;
-
-// ===== 占い =====
-let isDrawing = false;
-
- //drawBtn.addEventListener("click", () => {
-//});
-
-
-
+}
 
 // =========================
-// ⑥ メイン処理
+// ⑤ メイン処理
 // =========================
 function drawThree(){
 
   console.log("ボタン押された");
-  console.log("isDrawing", isDrawing);
 
- //if(isDrawing) return;   // 連打防止
-  // 👇 ここに入れる！！！
+  // 🔒 連打防止
+  if(isDrawing) return;
 
-  //if(!canUseFree()){
-  //  showAdOrPay();
-  //  return;
-  //}
-  //saveUsed(); // ← ここも大事
+  // 💡 ここが最重要（最初に判定）
+  if(!canUseFree()){
+    showAdOrPay();
+    return;
+  }
 
+  saveUsed();
   isDrawing = true;
-
 
   resultEl.innerHTML = "🔮 シャッフル中...";
 
@@ -279,7 +243,6 @@ function drawThree(){
     const positions = ["過去","現在","未来"];
 
     draw.forEach((card,index)=>{
-
       setTimeout(()=>{
 
         const isReversed = Math.random() < 0.5;
@@ -302,172 +265,50 @@ function drawThree(){
 
       }, index * 800);
     });
-  
 
-  // 👇 ここに入れる！！！
+    // AI結果
+    setTimeout(async ()=>{
 
-  if(!canUseFree()){
-    showAdOrPay();
-    return;
-  }
-  saveUsed(); // ← ここも大事
+      const summary = document.createElement("div");
+      summary.innerHTML = `
+        <h2>🔮 総合リーディング</h2>
+        <p id="loading">✨ AIが読み解いています...</p>
+        <p id="resultText"></p>
+      `;
+      resultEl.appendChild(summary);
 
-  //isDrawing = true;
+      try{
+        const aiMessage = await getFinalReading(results);
 
+        document.getElementById("loading").remove();
+        document.getElementById("resultText").innerHTML =
+          `<span class="fade-in">${aiMessage}</span>`;
 
+      }catch(e){
+        console.log(e);
+      }
 
+      isDrawing = false;
 
+    }, 3000);
 
-watchAdBtn.addEventListener("click", () => {
-  alert("広告を再生（仮）");
-});
-
-
-//function closeModal(){
-//  if(adModal){
-//    adModal.classList.remove("active"); // 閉じる
-//  }
-//}
-
-    // ✅ 全部終わるのを待つ（ここが重要）
-//if (data.limit) {
-//  showAdOrPay(); // モーダル出す
-//} else {
-//  resultEl.textContent = data.message;
-//}
-
-
-setTimeout(async ()=>{
-
-  console.log("🔥 AIゾーン来た");
-
-  const summary = document.createElement("div");
-  summary.innerHTML = `
-    <h2>🔮 総合リーディング</h2>
-    <p id="loading">✨ AIが読み解いています...</p>
-    <p id="resultText"></p>
-  `;
-  resultEl.appendChild(summary);
-
-  try{
-    const aiMessage = await getFinalReading(results);
-
-    const loadingEl = document.getElementById("loading");
-    const resultElText = document.getElementById("resultText");
-
-   // loadingEl.style.display = "none";
-
-
-//resultElText.textContent = aiMessage;
-
-loadingEl.style.display = "none";
-
-resultElText.innerHTML = `
-  <span class="fade-in">${aiMessage}</span>
-`;
-    
-    //loadingEl.style.display = "none";
-    //document.getElementById("loading").textContent = aiMessage;
-    //typeText(resultElText, aiMessage, 40);
-
-    //const loadingEl = document.getElementById("loading");
-
-if(loadingEl){
-  loadingEl.remove(); // ← 完全削除
-}
-
-  }catch(e){
-    console.log(e);
-  }
-
-  // 👇 これ追加！！！！！！！！
-  isDrawing = false;
-
-  //drawBtn.disabled = false;
-
-}, 3000);
-
-  }, 1000);   
-}
-
-
-
-
-//
-//function typeText(element, text, speed = 50){
-//  let i = 0;
-//  element.textContent = "";
-//
-  //function typing(){
-    //if(i < text.length){
-      //element.textContent += text.charAt(i);
-      //i++;
-      //setTimeout(typing, speed);
-    //}
-  //}
-
-  //typing();
-//}
-
-
-// ===== モーダル =====
-
-// =========================
-// ⑤ UI操作
-// =========================
-    // これ追加！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-function showAdOrPay(){
-
-  adModal.classList.remove("hidden");
-
-  // if(adModal){
-  //  adModal.classList.add("active"); // 表示だけ
-  //}
-}
-
-//console.log("watchAdBtn",watchAdBtn);
-
-
-function openModal(card, isReversed){
-  modalEl.style.display = "flex";
-  modalImg.src = card.img;
-  modalName.textContent = card.name;
-  modalText.textContent = isReversed ? card.rev : card.up;
-}
-
-//function closeModal(){
-//  modalEl.style.display = "none";
-//}
-
-
-
-function closeModal(){
-  if(adModal){
-    adModal.classList.remove("active"); // 閉じる
-  }
+  }, 1000);
 }
 
 // =========================
-// ⑦ イベント
+// ⑥ イベント
 // =========================
 drawBtn.addEventListener("click", drawThree);
-closeBtn.addEventListener("click", closeModal);
 
-
-// ===== 広告視聴 =====
-
-
-
+// 広告視聴
 watchAdBtn.addEventListener("click", async ()=>{
-
   watchAdBtn.textContent = "広告再生中...";
   watchAdBtn.disabled = true;
 
   await new Promise(r => setTimeout(r, 3000));
 
-  // 👇 制限解除
+  // 制限解除
   localStorage.removeItem("lastUsedDate");
 
   adModal.classList.add("hidden");
-
 });
