@@ -1,5 +1,15 @@
 console.log("JS読み込みOK");
 
+  // ⭐ ここに入れる（最初！！）
+  document.getElementById("adText").textContent = "広告を見るともう一度占えます";
+  document.getElementById("adDone").style.display = "none";
+  watchAdBtn.style.display = "block";
+  watchAdBtn.disabled = false;
+  watchAdBtn.textContent = "広告を見る";
+
+
+
+
 // =========================
 // ① DOM取得
 // =========================
@@ -320,11 +330,11 @@ console.log("pass005");
       // =========================
     　　// ⭐ ここ追加（復活処理）
     　　// =========================
-    　　　document.getElementById("adText").textContent = "広告を見るともう一度占えます";
-    　　　document.getElementById("adDone").style.display = "none";
-    　　　watchAdBtn.style.display = "block";
-    　　　watchAdBtn.disabled = false;
-    　　　watchAdBtn.textContent = "広告を見る";    
+    　　//　document.getElementById("adText").textContent = "広告を見るともう一度占えます";
+    　　//　document.getElementById("adDone").style.display = "none";
+    　　//　watchAdBtn.style.display = "block";
+    　　//　watchAdBtn.disabled = false;
+    　　//　watchAdBtn.textContent = "広告を見る";    
 
       }catch(e){
         console.log(e);
