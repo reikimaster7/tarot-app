@@ -300,7 +300,7 @@ function drawThree(){
 
         resultEl.appendChild(cardEl);
 
-      ç, index * 800);
+      }, index * 800);
     });
   
 
