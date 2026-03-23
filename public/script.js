@@ -253,17 +253,15 @@ let isDrawing = false;
 function drawThree(){
 
   console.log("ボタン押された");
-
+ if(isDrawing) return;
   // 👇 ここに入れる！！！
-  //if(!canUseFree()){
-  //  showAdOrPay();
-  //  return;
-  //}
+  if(!canUseFree()){
+    showAdOrPay();
+    return;
+  }
   saveUsed(); // ← ここも大事
 
-  if(isDrawing) return;
   isDrawing = true;
-
 
 
   resultEl.innerHTML = "🔮 シャッフル中...";
