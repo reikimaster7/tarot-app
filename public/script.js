@@ -255,7 +255,7 @@ function drawThree(){
   console.log("ボタン押された");
    console.log(isDrawing);
 
- if(isDrawing) return;
+ if(isDrawing) false;
   // 👇 ここに入れる！！！
   if(!canUseFree()){
     showAdOrPay();
