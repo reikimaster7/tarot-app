@@ -331,11 +331,11 @@ function closeModal(){
 }
 
     // ✅ 全部終わるのを待つ（ここが重要）
-if (data.limit) {
-  showAdOrPay(); // モーダル出す
-} else {
-  resultEl.textContent = data.message;
-}
+//if (data.limit) {
+//  showAdOrPay(); // モーダル出す
+//} else {
+//  resultEl.textContent = data.message;
+//}
 
 
 setTimeout(async ()=>{
