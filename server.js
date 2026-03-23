@@ -76,3 +76,29 @@ app.listen(3000, () => {
 });
 
 
+// ⭐ 占い回数制限（IPアドレスごとに3回まで）
+
+let userCount = {}; // 仮（本来はDB）
+
+app.post("/api/tarot", (req, res) => {
+  const userId = req.ip;
+
+  if (!userCount[userId]) {
+    userCount[userId] = 0;
+  }
+
+  if (userCount[userId] >= 3) {
+    return res.json({
+      limit: true,
+      message: "広告を見る必要があります"
+    });
+  }
+
+  userCount[userId]++;
+
+  res.json({
+    limit: false,
+    message: "占い結果！"
+  });
+});
+
