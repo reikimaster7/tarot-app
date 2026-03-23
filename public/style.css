@@ -47,6 +47,30 @@ h1 {
   box-shadow: 0 0 15px #b983ff;
 }
 
+#watchAdBtn {
+  font-size: 18px;
+  padding: 14px 24px;
+  border-radius: 12px;
+
+  background: linear-gradient(45deg, #ff7a00, #ffcc00);
+  color: #000;
+  font-weight: bold;
+
+  border: none;
+  cursor: pointer;
+
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+#watchAdBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+#watchAdBtn:active {
+  transform: scale(0.95);
+}
+
 /* 結果 */
 #result {
   display: flex;
