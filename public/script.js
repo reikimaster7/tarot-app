@@ -253,7 +253,7 @@ let isDrawing = false;
 function drawThree(){
 
   console.log("ボタン押された");
-   console.log(isDrawing);
+  console.log("isDrawing", isDrawing);
 
  if(isDrawing) return;   // 連打防止
   // 👇 ここに入れる！！！
