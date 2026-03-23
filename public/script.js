@@ -224,24 +224,30 @@ console.log("adModal:", adModal);
   // 🔒 連打防止
   if(isDrawing) return;
 
+  console.log("isDrawing",isDrawin);
+
   // 💡 ここが最重要（最初に判定）
+   console.log("pass001");
   if(!canUseFree()){
     showAdOrPay();
     return;
   }
 
+  console.log("pass002");
+
   saveUsed();
   isDrawing = true;
-
+ console.log("pass003");
   resultEl.innerHTML = "🔮 シャッフル中...";
 
   const results = [];
 
+ console.log("pass004");
 
 setTimeout(() => {
 
   console.log("シャッフル開始");
-
+console.log("pass005");
   resultEl.innerHTML = "";
 
   const draw = shuffle(cards).slice(0,3);
