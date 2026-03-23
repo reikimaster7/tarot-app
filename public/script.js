@@ -337,4 +337,13 @@ watchAdBtn.addEventListener("click", async ()=>{
   localStorage.removeItem("lastUsedDate");
 
   adModal.classList.add("hidden");
+
+
+　isDrawing = false; // ← ★これ重要
+
+  drawThree(); // ← 自動再実行
+
+watchAdBtn.textContent = "広告を見る";
+watchAdBtn.disabled = false;
+
 });
