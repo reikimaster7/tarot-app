@@ -224,7 +224,7 @@ console.log("adModal:", adModal);
   // 🔒 連打防止
   if(isDrawing) return;
 
-  console.log("isDrawing",isDrawin);
+  console.log("isDrawing",isDrawing);
 
   // 💡 ここが最重要（最初に判定）
    console.log("pass001");
