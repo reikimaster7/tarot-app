@@ -188,8 +188,13 @@ function saveUsed(){
 }
 
 // ⭐ これがないとエラーになる
+//function showAdOrPay(){
+//  adModal.classList.remove("hidden");
+//}
+
 function showAdOrPay(){
-  adModal.classList.remove("hidden");
+  console.log("広告モーダル出す");
+  adModal.style.display = "flex";
 }
 
 // =========================
