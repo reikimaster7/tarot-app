@@ -228,6 +228,7 @@ console.log("adModal:", adModal);
 
   // 💡 ここが最重要（最初に判定）
    console.log("pass001");
+   console.log("canUseFree:", canUseFree());
   if(!canUseFree()){
     showAdOrPay();
     return;
