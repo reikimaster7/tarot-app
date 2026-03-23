@@ -308,14 +308,14 @@ function drawThree(){
 // ⑤ UI操作
 // =========================
     // これ追加！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-//function showAdOrPay(){
+function showAdOrPay(){
 
-  //adModal.classList.remove("hidden");
+  adModal.classList.remove("hidden");
 
   // if(adModal){
   //  adModal.classList.add("active"); // 表示だけ
   //}
-//}
+}
 
 //console.log("watchAdBtn",watchAdBtn);
 
