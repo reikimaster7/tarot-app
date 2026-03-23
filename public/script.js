@@ -253,6 +253,8 @@ let isDrawing = false;
 function drawThree(){
 
   console.log("ボタン押された");
+   console.log(isDrawing);
+
  if(isDrawing) return;
   // 👇 ここに入れる！！！
   if(!canUseFree()){
