@@ -237,36 +237,46 @@ console.log("adModal:", adModal);
 
   const results = [];
 
-  setTimeout(()=>{
 
-    resultEl.innerHTML = "";
+setTimeout(() => {
 
-    const draw = shuffle(cards).slice(0,3);
-    const positions = ["過去","現在","未来"];
+  console.log("シャッフル開始");
 
-    draw.forEach((card,index)=>{
-      setTimeout(()=>{
+  resultEl.innerHTML = "";
 
-        const isReversed = Math.random() < 0.5;
-        results.push({ card, isReversed });
+  const draw = shuffle(cards).slice(0,3);
+  const positions = ["過去","現在","未来"];
 
-        const text = isReversed ? card.rev : card.up;
+  draw.forEach((card, index) => {
 
-        const cardEl = document.createElement("div");
-        cardEl.className = "card";
+    setTimeout(() => {
 
-        cardEl.innerHTML = `
-          <h3>${positions[index]}</h3>
-          <img src="${card.img}" class="${isReversed ? "reversed" : ""}">
-          <p>${card.name}</p>
-          <p>${isReversed ? "🔻逆位置" : "🔺正位置"}</p>
-          <p>${text}</p>
-        `;
+      console.log("カード表示", index);
 
-        resultEl.appendChild(cardEl);
+      const isReversed = Math.random() < 0.5;
+      results.push({ card, isReversed });
 
-      }, index * 800);
-    });
+      const text = isReversed ? card.rev : card.up;
+
+      const cardEl = document.createElement("div");
+      cardEl.className = "card";
+
+      cardEl.innerHTML = `
+        <h3>${positions[index]}</h3>
+        <img src="${card.img}" class="${isReversed ? "reversed" : ""}">
+        <p>${card.name}</p>
+        <p>${isReversed ? "🔻逆位置" : "🔺正位置"}</p>
+        <p>${text}</p>
+      `;
+
+      resultEl.appendChild(cardEl);
+
+    }, index * 800);
+
+  });
+
+}, 1000);
+
 
     // AI結果
     setTimeout(async ()=>{
