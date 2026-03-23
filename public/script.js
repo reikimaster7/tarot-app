@@ -218,6 +218,8 @@ async function getFinalReading(results){
 function drawThree(){
 
   console.log("ボタン押された");
+  console.log("cards:", cards);
+console.log("adModal:", adModal);
 
   // 🔒 連打防止
   if(isDrawing) return;
