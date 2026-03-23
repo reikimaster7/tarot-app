@@ -255,14 +255,14 @@ function drawThree(){
   console.log("ボタン押された");
   console.log("isDrawing", isDrawing);
 
- if(isDrawing) return;   // 連打防止
+ //if(isDrawing) return;   // 連打防止
   // 👇 ここに入れる！！！
 
-  if(!canUseFree()){
-    showAdOrPay();
-    return;
-  }
-  saveUsed(); // ← ここも大事
+  //if(!canUseFree()){
+  //  showAdOrPay();
+  //  return;
+  //}
+  //saveUsed(); // ← ここも大事
 
   isDrawing = true;
 
@@ -303,6 +303,17 @@ function drawThree(){
       }, index * 800);
     });
   
+
+  // 👇 ここに入れる！！！
+
+  if(!canUseFree()){
+    showAdOrPay();
+    return;
+  }
+  saveUsed(); // ← ここも大事
+
+  //isDrawing = true;
+
 
 // =========================
 // ⑤ UI操作
