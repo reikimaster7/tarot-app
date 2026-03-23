@@ -1,7 +1,8 @@
 console.log("JS読み込みOK");
-alert("ここ読んでる？");
 
-// ===== DOM =====
+// =========================
+// ① DOM取得
+// =========================
 const resultEl = document.getElementById("result");
 const drawBtn = document.getElementById("drawBtn");
 
@@ -11,12 +12,13 @@ const modalName = document.getElementById("modalName");
 const modalText = document.getElementById("modalText");
 const closeBtn = document.getElementById("closeBtn");
 
-// ===== 広告視聴用のワーク　=====
-
 const adModal = document.getElementById("adModal");
 const watchAdBtn = document.getElementById("watchAdBtn");
-const closeAdBtn = document.getElementById("closeAdBtn");
 
+// =========================
+// ② 状態管理
+// =========================
+let isDrawing = false;
 
 // ===== カード =====
 const cards = [
@@ -154,7 +156,11 @@ rev:"あと一歩で完成です。最後まで努力を続けることが成功
 }
 ];
 
-// ===== シャッフル =====
+/
+
+// =========================
+// ③ ユーティリティ
+// =========================
 function shuffle(array){
   const arr = [...array];
   for(let i = arr.length - 1; i > 0; i--){
@@ -164,37 +170,22 @@ function shuffle(array){
   return arr;
 }
 
-
-// ===== 
 function getToday(){
-  const now = new Date();
-  return now.toISOString().split("T")[0];
+  return new Date().toISOString().split("T")[0];
 }
 
 function canUseFree(){
-  const lastDate = localStorage.getItem("lastUsedDate");
-  const today = getToday();
-  return lastDate !== today;
+  return localStorage.getItem("lastUsedDate") !== getToday();
 }
 
 function saveUsed(){
   localStorage.setItem("lastUsedDate", getToday());
 }
 
-function showAdOrPay(){
-  const adModal = document.getElementById("adModal");
-  adModal.classList.remove("hidden");
-}
-
-
-
-// ===== AI通信 =====
-console.log("送信前");
-
+// =========================
+// ④ API通信
+// =========================
 async function getFinalReading(results){
-
-  console.log("送信前");
-
   const res = await fetch("http://localhost:3000/api/tarot", {
     method: "POST",
     headers: {
@@ -203,56 +194,63 @@ async function getFinalReading(results){
     body: JSON.stringify({
       cards: results.map((r, i)=>({
         name: r.card.name,
-        position: i === 0 ? "過去" : i === 1 ? "現在" : "未来",
+        position: ["過去","現在","未来"][i],
         isReversed: r.isReversed
       }))
     })
   });
 
-  console.log("レスポンス来た", res);
-
   const data = await res.json();
-
-  console.log("中身", data);
-
   return data.message;
+}
 
-} // ← ⭐これ重要
+// =========================
+// ⑤ UI操作
+// =========================
+function showAd(){
+  adModal.classList.remove("hidden");
+}
 
-// drawBtn.disabled = true;
+function closeAd(){
+  adModal.classList.add("hidden");
+}
 
-// ===== 占い =====
-let isDrawing = false;
+function openModal(card, isReversed){
+  modalEl.style.display = "flex";
+  modalImg.src = card.img;
+  modalName.textContent = card.name;
+  modalText.textContent = isReversed ? card.rev : card.up;
+}
 
- drawBtn.addEventListener("click", () => {
-});
+function closeModal(){
+  modalEl.style.display = "none";
+}
 
-function drawThree(){
-
-  console.log("ボタン押された");
-
-  // 👇 ここに入れる！！！
-  //if(!canUseFree()){
-  //  showAdOrPay();
-  //  return;
-  //}
-  saveUsed(); // ← ここも大事
+// =========================
+// ⑥ メイン処理
+// =========================
+async function drawThree(){
 
   if(isDrawing) return;
+
+  // 制限チェック
+  if(!canUseFree()){
+    showAd();
+    return;
+  }
+
+  saveUsed();
   isDrawing = true;
-
-
 
   resultEl.innerHTML = "🔮 シャッフル中...";
 
   const results = [];
+  const draw = shuffle(cards).slice(0,3);
+  const positions = ["過去","現在","未来"];
 
   setTimeout(()=>{
 
     resultEl.innerHTML = "";
-
-    const draw = shuffle(cards).slice(0,3);
-    const positions = ["過去","現在","未来"];
 
     draw.forEach((card,index)=>{
 
@@ -278,168 +276,52 @@ function drawThree(){
 
       }, index * 800);
     });
-  
 
+    // AI結果
+    setTimeout(async ()=>{
 
+      const summary = document.createElement("div");
+      summary.innerHTML = `
+        <h2>🔮 総合リーディング</h2>
+        <p id="loading">✨ AIが読み解いています...</p>
+        <p id="resultText"></p>
+      `;
+      resultEl.appendChild(summary);
 
-    // これ追加！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-function showAdOrPay(){
+      try{
+        const aiMessage = await getFinalReading(results);
 
-  adModal.classList.remove("hidden");
+        document.getElementById("loading").remove();
+        document.getElementById("resultText").innerHTML =
+          `<span class="fade-in">${aiMessage}</span>`;
+
+      }catch(e){
+        console.error(e);
+      }
+
+      isDrawing = false;
+
+    }, 3000);
+
+  }, 1000);
 }
 
-
-
-
-console.log(watchAdBtn);
-
-watchAdBtn.addEventListener("click", () => {
-  alert("広告を再生（仮）");
-});
-
-function showAdOrPay(){
-  if(adModal){
-    adModal.classList.add("active");
-  }
-}
-
-function showAdOrPay(){
-  if(adModal){
-    adModal.classList.add("active"); // 表示だけ
-  }
-}
-
-function closeModal(){
-  if(adModal){
-    adModal.classList.remove("active"); // 閉じる
-  }
-}
-
-
-    // ✅ 全部終わるのを待つ（ここが重要）
-
-
-
-const res = await fetch("/api/tarot", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ question, cards })
-});
-
-const data = await res.json();
-
-if (data.limit) {
-  showAdOrPay(); // モーダル出す
-} else {
-  resultEl.textContent = data.message;
-}
-
-
-
-      setTimeout(async ()=>{
-
-  console.log("🔥 AIゾーン来た");
-
-  const summary = document.createElement("div");
-  summary.innerHTML = `
-    <h2>🔮 総合リーディング</h2>
-    <p id="loading">✨ AIが読み解いています...</p>
-    <p id="resultText"></p>
-  `;
-  resultEl.appendChild(summary);
-
-  try{
-    const aiMessage = await getFinalReading(results);
-
-    const loadingEl = document.getElementById("loading");
-    const resultElText = document.getElementById("resultText");
-
-   // loadingEl.style.display = "none";
-
-
-//resultElText.textContent = aiMessage;
-
-loadingEl.style.display = "none";
-
-resultElText.innerHTML = `
-  <span class="fade-in">${aiMessage}</span>
-`;
-    
-    //loadingEl.style.display = "none";
-    //document.getElementById("loading").textContent = aiMessage;
-    //typeText(resultElText, aiMessage, 40);
-
-    //const loadingEl = document.getElementById("loading");
-
-if(loadingEl){
-  loadingEl.remove(); // ← 完全削除
-}
-
-  }catch(e){
-    console.log(e);
-  }
-
-  // 👇 これ追加！！！！！！！！
-  isDrawing = false;
-
-  //drawBtn.disabled = false;
-
-}, 3000);
-
-  }, 1000);   
-}
-
-
-
-
-//
-//function typeText(element, text, speed = 50){
-//  let i = 0;
-//  element.textContent = "";
-//
-  //function typing(){
-    //if(i < text.length){
-      //element.textContent += text.charAt(i);
-      //i++;
-      //setTimeout(typing, speed);
-    //}
-  //}
-
-  //typing();
-//}
-
-
-// ===== モーダル =====
-function openModal(card, isReversed){
-  modalEl.style.display = "flex";
-  modalImg.src = card.img;
-  modalName.textContent = card.name;
-  modalText.textContent = isReversed ? card.rev : card.up;
-}
-
-function closeModal(){
-  modalEl.style.display = "none";
-}
-
-// ===== イベント =====
+// =========================
+// ⑦ イベント
+// =========================
 drawBtn.addEventListener("click", drawThree);
+
 closeBtn.addEventListener("click", closeModal);
 
-
-// ===== 広告視聴 =====
-
-
-
 watchAdBtn.addEventListener("click", async ()=>{
-
   watchAdBtn.textContent = "広告再生中...";
   watchAdBtn.disabled = true;
 
   await new Promise(r => setTimeout(r, 3000));
 
-  // 👇 制限解除
   localStorage.removeItem("lastUsedDate");
+  closeAd();
 
-  adModal.classList.add("hidden");
-
+  watchAdBtn.textContent = "もう一度占う";
+  watchAdBtn.disabled = false;
 });
