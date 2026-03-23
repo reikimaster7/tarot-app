@@ -221,8 +221,8 @@ async function getFinalReading(results){
 // ⑤ メイン処理
 // =========================
 function drawThree(){
-
-  localStorage.clear();
+// デバッグ用：使用履歴リセット
+ // localStorage.clear();
 
   console.log("ボタン押された");
   console.log("cards:", cards);
