@@ -5,7 +5,7 @@ import OpenAI from "openai";
 const app = express();
 
 //const text = (isReversed ? card.rev : card.up)
-//  .replace(/。/g, "。<br>");
+  .replace(/。/g, "。<br>");
 
 app.use(cors());
 app.use(express.json());
@@ -65,25 +65,13 @@ ${cards.map(c =>
     //res.status(500).json({ message: "AIエラー" });
 
      // 👇 仮メッセージ (AI課金待ち)
-  //res.json({
-  //  message: "🔮 今は大きな転機の中にいます。焦らず、自分の直感を信じてください。これからよりよくなります。ワクワクすることに向かって一生懸命にうごくことがポイントです。１年後の自分のイメージをしてよい未来を引き寄せましょう。"
-  //    });
+  res.json({
+    message: "🔮 今は大きな転機の中にいます。焦らず、自分の直感を信じてください。これからよりよくなります。ワクワクすることに向かって一生懸命にうごくことがポイントです。１年後の自分のイメージをしてよい未来を引き寄せましょう。"
+      });
 
 
-        try{
-    // 👇 仮メッセージで固定（今はAI使わない）
-    return res.json({
-      message: `🔮 今は大きな転機の中にいます。
-           焦らず、自分の直感を信じてください。
-           これからよりよくなります。
-          ワクワクすることに向かって動くことがポイントです。
-
-           1年後の自分をイメージして
-           よい未来を引き寄せましょう。`
-    });
-
-  };)
-
+  }
+});
 
 // 起動
 app.listen(3000, () => {
@@ -95,25 +83,25 @@ app.listen(3000, () => {
 
 let userCount = {}; // 仮（本来はDB）
 
-//app.post("/api/tarot", (req, res) => {
-//  const userId = req.ip;
+app.post("/api/tarot", (req, res) => {
+  const userId = req.ip;
 
- // if (!userCount[userId]) {
- //   userCount[userId] = 0;
- // }
+  if (!userCount[userId]) {
+    userCount[userId] = 0;
+  }
 
- // if (userCount[userId] >= 3) {
- //   return res.json({
- //     limit: true,
- //     message: "広告を見る必要があります"
- //   });
- // }
+  if (userCount[userId] >= 3) {
+    return res.json({
+      limit: true,
+      message: "広告を見る必要があります"
+    });
+  }
 
- // userCount[userId]++;
+  userCount[userId]++;
 
-  //res.json({
-  //  limit: false,
-  //  message: "占い結果！"
-  //});
-//});
+  res.json({
+    limit: false,
+    message: "占い結果！"
+  });
+});
 
