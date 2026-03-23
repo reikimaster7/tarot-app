@@ -290,20 +290,6 @@ function showAdOrPay(){
 
 
 
-const res = await fetch("/api/tarot", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ question, cards })
-});
-
-const data = await res.json();
-
-if (data.limit) {
-  showAdOrPay(); // モーダル出す
-} else {
-  resultEl.textContent = data.message;
-}
-
 
 console.log(watchAdBtn);
 
@@ -331,6 +317,22 @@ function closeModal(){
 
 
     // ✅ 全部終わるのを待つ（ここが重要）
+
+
+
+const res = await fetch("/api/tarot", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ question, cards })
+});
+
+const data = await res.json();
+
+if (data.limit) {
+  showAdOrPay(); // モーダル出す
+} else {
+  resultEl.textContent = data.message;
+}
 
 
 
