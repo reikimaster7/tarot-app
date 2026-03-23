@@ -11,9 +11,6 @@ const modalName = document.getElementById("modalName");
 const modalText = document.getElementById("modalText");
 const closeBtn = document.getElementById("closeBtn");
 
-const watchAdBtn = document.getElementById("watchAdBtn");
-const adModal = document.getElementById("adModal");
-
 
 
 // ===== 広告視聴用のワーク　=====
