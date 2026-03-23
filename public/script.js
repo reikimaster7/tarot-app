@@ -341,10 +341,14 @@ watchAdBtn.addEventListener("click", async ()=>{
   // 制限解除
   localStorage.removeItem("lastUsedDate");
 
+    // 表示変更 ← ★ここ
+  document.getElementById("adText").textContent = "占うボタンを押せます";
   //adModal.classList.add("hidden");
   adModal.style.display = "block"; // 左上に出すだけ
-
-
+  // ボタン消す
+  watchAdBtn.style.display = "none";
+  // ✔ 表示 ← ★これ
+  document.getElementById("adDone").style.display = "block";
 　isDrawing = false; // ← ★これ重要
 
   //drawThree(); // ← 自動再実行
