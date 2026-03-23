@@ -76,22 +76,3 @@ app.listen(3000, () => {
 });
 
 
-const watchAdBtn = document.getElementById("watchAdBtn");
-
-console.log(watchAdBtn); // ← ここはJSに書く
-
-watchAdBtn.addEventListener("click", () => {
-  alert("広告を再生（仮）");
-});
-
-
-const adModal = document.getElementById("adModal");
-
-function showAdOrPay(){
-  if(adModal){
-
-    adModal.classList.add("active");   // 表示
-　　adModal.classList.remove("active"); // 非表示
-
-  }
-}

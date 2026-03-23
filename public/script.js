@@ -11,6 +11,9 @@ const modalName = document.getElementById("modalName");
 const modalText = document.getElementById("modalText");
 const closeBtn = document.getElementById("closeBtn");
 
+const watchAdBtn = document.getElementById("watchAdBtn");
+const adModal = document.getElementById("adModal");
+
 
 
 // ===== 広告視聴用のワーク　=====
@@ -283,10 +286,37 @@ function drawThree(){
   
 
 
+
     // これ追加！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
 function showAdOrPay(){
   const adModal = document.getElementById("adModal");
   adModal.classList.remove("hidden");
+}
+
+
+
+console.log(watchAdBtn);
+
+watchAdBtn.addEventListener("click", () => {
+  alert("広告を再生（仮）");
+});
+
+function showAdOrPay(){
+  if(adModal){
+    adModal.classList.add("active");
+  }
+}
+
+function showAdOrPay(){
+  if(adModal){
+    adModal.classList.add("active"); // 表示だけ
+  }
+}
+
+function closeModal(){
+  if(adModal){
+    adModal.classList.remove("active"); // 閉じる
+  }
 }
 
 
