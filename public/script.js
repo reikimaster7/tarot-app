@@ -197,10 +197,10 @@ function saveUsed(){
   localStorage.setItem("lastUsedDate", getToday());
 }
 
-function showAdOrPay(){
-  const adModal = document.getElementById("adModal");
-  adModal.classList.remove("hidden");
-}
+//function showAdOrPay(){
+//  const adModal = document.getElementById("adModal");
+//  adModal.classList.remove("hidden");
+//}
 
 
 // =========================
@@ -241,8 +241,8 @@ async function getFinalReading(results){
 // ===== 占い =====
 let isDrawing = false;
 
- drawBtn.addEventListener("click", () => {
-});
+ //drawBtn.addEventListener("click", () => {
+//});
 
 
 
@@ -255,7 +255,7 @@ function drawThree(){
   console.log("ボタン押された");
    console.log(isDrawing);
 
- if(isDrawing) false;
+ if(isDrawing) return;   // 連打防止
   // 👇 ここに入れる！！！
 
   if(!canUseFree()){
@@ -300,10 +300,10 @@ function drawThree(){
 
         resultEl.appendChild(cardEl);
 
-      }, index * 800);
+      ç, index * 800;
     });
-  
-
+    }
+    );}
 
 // =========================
 // ⑤ UI操作
@@ -311,12 +311,12 @@ function drawThree(){
     // これ追加！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
 function showAdOrPay(){
 
-  adModal.classList.remove("hidden");
+  //adModal.classList.remove("hidden");
 
-   if(adModal){
-    adModal.classList.add("active"); // 表示だけ
-  }
-}
+  // if(adModal){
+  //  adModal.classList.add("active"); // 表示だけ
+  //}
+//}
 
 console.log(watchAdBtn);
 
