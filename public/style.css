@@ -183,6 +183,15 @@ h1 {
   animation: cardFade 0.6s ease forwards;
 }
 
+.card {
+  text-align: center; /* タイトルや画像は中央 */
+}
+
+.card p {
+  text-align: left;   /* 文章だけ左寄せ */
+}
+
+
 @keyframes cardFade {
   to {
     opacity: 1;
