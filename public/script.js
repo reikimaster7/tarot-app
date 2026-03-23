@@ -257,6 +257,7 @@ function drawThree(){
 
  if(isDrawing) false;
   // 👇 ここに入れる！！！
+
   if(!canUseFree()){
     showAdOrPay();
     return;
