@@ -20,13 +20,6 @@ const watchAdBtn = document.getElementById("watchAdBtn");
 // =========================
 // ② 状態管理
 // =========================
-  // ⭐ ここに入れる（最初！！）
-  document.getElementById("adText").textContent = "広告を見るともう一度占えます";
-  document.getElementById("adDone").style.display = "none";
-  watchAdBtn.style.display = "block";
-  watchAdBtn.disabled = false;
-  watchAdBtn.textContent = "広告を見る";
-
 
 let isDrawing = false;
 
@@ -241,6 +234,15 @@ function drawThree(){
   console.log("ボタン押された");
   console.log("cards:", cards);
 console.log("adModal:", adModal);
+
+  // ⭐ ここに入れる（最初！！）
+  document.getElementById("adText").textContent = "広告を見るともう一度占えます";
+  document.getElementById("adDone").style.display = "none";
+  watchAdBtn.style.display = "block";
+  watchAdBtn.disabled = false;
+  watchAdBtn.textContent = "広告を見る";
+
+
 
   // 🔒 連打防止
   if(isDrawing) return;
