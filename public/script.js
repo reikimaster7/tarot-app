@@ -11,8 +11,6 @@ const modalName = document.getElementById("modalName");
 const modalText = document.getElementById("modalText");
 const closeBtn = document.getElementById("closeBtn");
 
-
-
 // ===== 広告視聴用のワーク　=====
 
 const adModal = document.getElementById("adModal");
@@ -286,7 +284,7 @@ function drawThree(){
 
     // これ追加！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
 function showAdOrPay(){
-  const adModal = document.getElementById("adModal");
+
   adModal.classList.remove("hidden");
 }
 
