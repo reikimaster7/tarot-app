@@ -222,6 +222,8 @@ async function getFinalReading(results){
 // =========================
 function drawThree(){
 
+  localStorage.clear();
+
   console.log("ボタン押された");
   console.log("cards:", cards);
 console.log("adModal:", adModal);
