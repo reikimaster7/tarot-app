@@ -188,7 +188,7 @@ h1 {
 }
 
 .card p {
-  text-align: left;   /* 文章だけ左寄せ */
+  text-align: center;   /* 文章だけ左寄せ */
 }
 
 
