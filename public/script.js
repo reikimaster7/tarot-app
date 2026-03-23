@@ -300,10 +300,9 @@ function drawThree(){
 
         resultEl.appendChild(cardEl);
 
-      ç, index * 800;
+      ç, index * 800);
     });
-    }
-    );}
+  
 
 // =========================
 // ⑤ UI操作
