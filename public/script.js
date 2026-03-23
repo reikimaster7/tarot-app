@@ -315,31 +315,19 @@ function drawThree(){
   //isDrawing = true;
 
 
-// =========================
-// ⑤ UI操作
-// =========================
-    // これ追加！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-function showAdOrPay(){
 
-  adModal.classList.remove("hidden");
 
-  // if(adModal){
-  //  adModal.classList.add("active"); // 表示だけ
-  //}
-}
-
-//console.log("watchAdBtn",watchAdBtn);
 
 watchAdBtn.addEventListener("click", () => {
   alert("広告を再生（仮）");
 });
 
 
-function closeModal(){
-  if(adModal){
-    adModal.classList.remove("active"); // 閉じる
-  }
-}
+//function closeModal(){
+//  if(adModal){
+//    adModal.classList.remove("active"); // 閉じる
+//  }
+//}
 
     // ✅ 全部終わるのを待つ（ここが重要）
 //if (data.limit) {
@@ -423,6 +411,23 @@ if(loadingEl){
 
 
 // ===== モーダル =====
+
+// =========================
+// ⑤ UI操作
+// =========================
+    // これ追加！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+function showAdOrPay(){
+
+  adModal.classList.remove("hidden");
+
+  // if(adModal){
+  //  adModal.classList.add("active"); // 表示だけ
+  //}
+}
+
+//console.log("watchAdBtn",watchAdBtn);
+
+
 function openModal(card, isReversed){
   modalEl.style.display = "flex";
   modalImg.src = card.img;
@@ -430,8 +435,16 @@ function openModal(card, isReversed){
   modalText.textContent = isReversed ? card.rev : card.up;
 }
 
+//function closeModal(){
+//  modalEl.style.display = "none";
+//}
+
+
+
 function closeModal(){
-  modalEl.style.display = "none";
+  if(adModal){
+    adModal.classList.remove("active"); // 閉じる
+  }
 }
 
 // =========================
