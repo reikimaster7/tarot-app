@@ -1,7 +1,11 @@
 console.log("JS読み込みOK");
 alert("ここ読んでる？");
 
-// ===== DOM =====
+// =========================
+// ① DOM取得
+// =========================
+
+
 const resultEl = document.getElementById("result");
 const drawBtn = document.getElementById("drawBtn");
 
@@ -17,8 +21,16 @@ const adModal = document.getElementById("adModal");
 const watchAdBtn = document.getElementById("watchAdBtn");
 const closeAdBtn = document.getElementById("closeAdBtn");
 
+// =========================
+// ② 状態管理
+// =========================
+//let isDrawing = false;     //占いのところにあるので一旦コメントアウト
 
-// ===== カード =====
+
+// =========================
+// カードのデータ
+// =========================
+
 const cards = [
 {
 name:"愚者",
@@ -154,6 +166,10 @@ rev:"あと一歩で完成です。最後まで努力を続けることが成功
 }
 ];
 
+
+// =========================
+// ③ ユーティリティ
+// =========================
 // ===== シャッフル =====
 function shuffle(array){
   const arr = [...array];
@@ -187,8 +203,9 @@ function showAdOrPay(){
 }
 
 
-
-// ===== AI通信 =====
+// =========================
+// ④ API通信
+// =========================
 console.log("送信前");
 
 async function getFinalReading(results){
@@ -227,6 +244,12 @@ let isDrawing = false;
  drawBtn.addEventListener("click", () => {
 });
 
+
+
+
+// =========================
+// ⑥ メイン処理
+// =========================
 function drawThree(){
 
   console.log("ボタン押された");
@@ -281,14 +304,14 @@ function drawThree(){
   
 
 
-
+// =========================
+// ⑤ UI操作
+// =========================
     // これ追加！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
 function showAdOrPay(){
 
   adModal.classList.remove("hidden");
 }
-
-
 
 
 console.log(watchAdBtn);
@@ -421,7 +444,9 @@ function closeModal(){
   modalEl.style.display = "none";
 }
 
-// ===== イベント =====
+// =========================
+// ⑦ イベント
+// =========================
 drawBtn.addEventListener("click", drawThree);
 closeBtn.addEventListener("click", closeModal);
 
