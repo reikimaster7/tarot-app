@@ -308,3 +308,6 @@ h1 {
 #adModal.active {
   display: flex;
 }
+.hidden {
+  display: none;
+}
