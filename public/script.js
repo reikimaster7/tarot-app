@@ -194,8 +194,13 @@ function saveUsed(){
 
 function showAdOrPay(){
   console.log("広告モーダル出す");
-  adModal.style.display = "flex";
+//  adModal.style.display = "flex";
+
+    adModal.style.display = "block"; // 左上に出すだけ
 }
+
+
+
 
 // =========================
 // ④ API
@@ -336,7 +341,8 @@ watchAdBtn.addEventListener("click", async ()=>{
   // 制限解除
   localStorage.removeItem("lastUsedDate");
 
-  adModal.classList.add("hidden");
+  //adModal.classList.add("hidden");
+  adModal.style.display = "block"; // 左上に出すだけ
 
 
 　isDrawing = false; // ← ★これ重要
