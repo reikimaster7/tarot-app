@@ -5,7 +5,7 @@ import OpenAI from "openai";
 const app = express();
 
 //const text = (isReversed ? card.rev : card.up)
-  .replace(/。/g, "。<br>");
+//  .replace(/。/g, "。<br>");
 
 app.use(cors());
 app.use(express.json());
