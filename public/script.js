@@ -325,6 +325,8 @@ console.log("pass005");
         try{
       　const aiMessage = await getFinalReading(results);
 
+      if (loadingEl) loadingEl.remove();　　// aiが読み解いていますのテキストを消す
+
       //  document.getElementById("loading").remove();
       //  document.getElementById("resultText").innerHTML =
       //  `<span class="fade-in">${aiMessage}</span>`;
