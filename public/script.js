@@ -321,6 +321,11 @@ console.log("pass005");
       //try{
       //  const aiMessage = await getFinalReading(results);
 
+      // 👇 ここ重要（先に取得）
+      const loadingEl = summary.querySelector("#loading");
+      const resultTextEl = summary.querySelector("#resultText");
+
+
 
         try{
       　const aiMessage = await getFinalReading(results);
