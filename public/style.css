@@ -80,7 +80,7 @@ h1 {
 /* 結果 */
 #result {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
   margin-top: 20px;
@@ -137,6 +137,14 @@ h1 {
 .rev {
   color: #ff6b6b;
 }
+
+#resultText {
+  text-align: left;
+  line-height: 1.8;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
 
 
 /* ===== カードめくり ===== */
