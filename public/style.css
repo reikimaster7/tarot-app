@@ -80,7 +80,7 @@ h1 {
 /* 結果 */
 #result {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   gap: 20px;
   flex-wrap: wrap;
   margin-top: 20px;
