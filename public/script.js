@@ -323,7 +323,7 @@ console.log("pass005");
 
 
         try{
-      //  const aiMessage = await getFinalReading(results);
+      　const aiMessage = await getFinalReading(results);
 
       //  document.getElementById("loading").remove();
       //  document.getElementById("resultText").innerHTML =
