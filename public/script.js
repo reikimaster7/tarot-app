@@ -323,11 +323,17 @@ console.log("pass005");
 
 
         try{
-        const aiMessage = await getFinalReading(results);
+      //  const aiMessage = await getFinalReading(results);
 
-        document.getElementById("loading").remove();
+      //  document.getElementById("loading").remove();
+      //  document.getElementById("resultText").innerHTML =
+      //  `<span class="fade-in">${aiMessage}</span>`;
+
+        const formatted = aiMessage
+        .replace(/。/g, "。<br>");
+
         document.getElementById("resultText").innerHTML =
-        `<span class="fade-in">${aiMessage}</span>`;
+        `<span class="fade-in">${formatted}</span>`;
 
   // =========================
   // ⭐ AI表示後に広告UI表示
