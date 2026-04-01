@@ -24,7 +24,8 @@ h1 {
 
 #questionInput {
   width: 250px;
-  padding: 8px;
+  font-size: 20px;
+  padding: 12px;
   border-radius: 10px;
   border: none;
   outline: none;
