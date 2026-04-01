@@ -91,9 +91,10 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 10px;
-
-  background: rgba(0,0,0,0.7);
+  background: red;
+  /*--background: rgba(0,0,0,0.7); */
   border-radius: 20px;
+  z-index: 10;   /* ← ★これ追加（最重要） */
 }
 
 /* 改行させない */
