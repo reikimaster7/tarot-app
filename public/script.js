@@ -264,7 +264,7 @@ console.log("adModal:", adModal);
   saveUsed();
   isDrawing = true;
  console.log("pass003");
-  esultEl.innerHTML = "🔮 シャッフル中...";
+  resultEl.innerHTML = "🔮 シャッフル中...";
 
   const results = [];
 
