@@ -138,14 +138,14 @@ h1 {
   color: #ff6b6b;
 }
 
-#resultText {
-  text-align: left;
-  line-height: 1.8;
-  max-width: 400px;
-  margin-left: 50px; /* 画面中央から少し右に寄せる */
-/*  margin: 0 auto; */
-}
 
+
+#resultText {
+  max-width: 420px;
+  line-height: 1.9;
+  text-align: left;
+  word-break: break-word;
+}
 
 
 /* ===== カードめくり ===== */
