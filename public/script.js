@@ -311,12 +311,11 @@ console.log("子要素数:", resultEl.children.length);
         <p>${text}</p>
       `;
 
-      resultEl.appendChild(cardEl);
+       resultEl.appendChild(cardEl);
 
     }, index * 800);
 
   });
-
 
 
 
@@ -329,7 +328,7 @@ console.log("子要素数:", resultEl.children.length);
         <p id="loading">✨ AIが読み解いています...</p>
         <p id="resultText"></p>
       `;
-      resultEl.appendChild(summary);
+       resultEl.appendChild(summary);
 
       //try{
       //  const aiMessage = await getFinalReading(results);
