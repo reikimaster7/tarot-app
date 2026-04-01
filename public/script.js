@@ -489,6 +489,8 @@ drawBtn.addEventListener("click", () => {
     console.log("占い実行");
     drawBtn.style.visibility = "visible";  // ← 戻す
     adOverlay.style.display = "none";
+    drawBtn.style.visibility = "visible";  // ← 戻す
+　　adOverlay.style.display = "none";
   }
 });
 
