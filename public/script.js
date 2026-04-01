@@ -265,16 +265,19 @@ console.log("adModal:", adModal);
   saveUsed();
   isDrawing = true;
  console.log("pass003");
+ console.log(resultEl.innerHTML);
   resultEl.innerHTML = "🔮 シャッフル中...";
 
   const results = [];
 
  console.log("pass004");
+ console.log(resultEl.innerHTML);
 
 setTimeout(() => {
 
   console.log("シャッフル開始");
 console.log("pass005");
+console.log(resultEl.innerHTML);
   resultEl.innerHTML = "";
 
   const draw = shuffle(cards).slice(0,3);
