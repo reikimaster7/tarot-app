@@ -242,7 +242,7 @@ function drawThree(){
 console.log("adModal:", adModal);
 
   // ⭐ 広告UIを即消す
-  //adModal.style.display = "none";
+  adModal.style.display = "none";
 
 
 
@@ -458,7 +458,7 @@ drawBtn.addEventListener("click", () => {
 
   if (drawCount >= 2) {
     // 2回目以降
-    adArea.style.display = "flex";
+    adArea.style.display = "flex"; //重ねて表示
   } else {
     // 1回目は普通に占う処理
     console.log("占い実行");
