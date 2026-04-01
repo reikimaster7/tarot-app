@@ -432,6 +432,9 @@ watchAdBtn.addEventListener("click", async ()=>{
   // 制限解除
   localStorage.removeItem("lastUsedDate");
 
+drawBtn.style.visibility = "visible";  // ← 戻す
+adOverlay.style.display = "none";
+
   // コメントアウト　始まり　//
  adModal.classList.add("hidden");
   adModal.style.display = "block"; // 左上に出すだけ
@@ -444,7 +447,7 @@ watchAdBtn.addEventListener("click", async ()=>{
   //  //drawThree(); // ← 自動再実行
 
   watchAdBtn.textContent = "広告を見る";
-watchAdBtn.disabled = false;
+  watchAdBtn.disabled = false;
 
 
 
@@ -469,8 +472,11 @@ watchAdBtn.disabled = false;
 
 let drawCount = 0;
 
+//const drawBtn = document.getElementById("drawBtn");
+//const adArea = document.getElementById("adArea");
+
 const drawBtn = document.getElementById("drawBtn");
-const adArea = document.getElementById("adArea");
+const adOverlay = document.getElementById("adOverlay");
 
 drawBtn.addEventListener("click", () => {
   drawCount++;
@@ -478,6 +484,8 @@ drawBtn.addEventListener("click", () => {
   if (drawCount >= 2) {
     // 2回目以降
     adArea.style.display = "flex"; //重ねて表示
+    drawBtn.style.visibility = "hidden";   // ← 消す
+    adOverlay.style.display = "flex";      // ← 出す
   } else {
     // 1回目は普通に占う処理
     console.log("占い実行");
