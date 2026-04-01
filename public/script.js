@@ -432,8 +432,6 @@ watchAdBtn.addEventListener("click", async ()=>{
   // 制限解除
   localStorage.removeItem("lastUsedDate");
 
-drawBtn.style.visibility = "visible";  // ← 戻す
-adOverlay.style.display = "none";
 
   // コメントアウト　始まり　//
  adModal.classList.add("hidden");
@@ -489,6 +487,8 @@ drawBtn.addEventListener("click", () => {
   } else {
     // 1回目は普通に占う処理
     console.log("占い実行");
+    drawBtn.style.visibility = "visible";  // ← 戻す
+    adOverlay.style.display = "none";
   }
 });
 
