@@ -302,7 +302,7 @@ console.log("pass005");
         <p>${card.name}</p>
         <p>${isReversed ? "🔻逆位置" : "🔺正位置"}</p>
         <p>${text}</p>
-      `;r
+      `;
 
       resultEl.appendChild(cardEl);
 
