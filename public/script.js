@@ -331,7 +331,7 @@ console.log("pass005");
       const loadingEl = summary.querySelector("#loading");
       const resultTextEl = summary.querySelector("#resultText");
 
-
+  
 
         try{
       　const aiMessage = await getFinalReading(results);
@@ -347,6 +347,15 @@ console.log("pass005");
 
         document.getElementById("resultText").innerHTML =
         `<span class="fade-in">${formatted}</span>`;
+      
+        }catch(e){
+          console.log(e);
+          //if (loadingEl) loadingEl.textContent = "AIの読み解きに失敗しました。";
+         
+    //  }
+        } 
+
+        
 
   // =========================
   // ⭐ AI表示後に広告UI表示
@@ -363,8 +372,9 @@ console.log("pass005");
       //  document.getElementById("resultText").innerHTML =
       //    `<span class="fade-in">${aiMessage}</span>`;
 
-        const watchAdBtn = document.getElementById("watchAdBtn");
 
+        
+     
         watchAdBtn.addEventListener("click", () => { 
         adArea.style.display = "none";
         drawCount = 0; // リセット
@@ -381,16 +391,25 @@ console.log("pass005");
     　　//　watchAdBtn.disabled = false;
     　　//　watchAdBtn.textContent = "広告を見る";    
 
-      }catch(e){
-        console.log(e);
-      }
+      
+
+
+        });
+      
+
+        
+    //  catch(e){
+    //    console.log(e);
+    //  }
 
       isDrawing = false;
 
     }, 3000);
+  
 
   }, 1000);
 }
+
 
 // =========================
 // ⑥ イベント
