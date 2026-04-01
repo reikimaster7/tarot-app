@@ -363,6 +363,13 @@ console.log("pass005");
       //  document.getElementById("resultText").innerHTML =
       //    `<span class="fade-in">${aiMessage}</span>`;
 
+        const watchAdBtn = document.getElementById("watchAdBtn");
+
+        watchAdBtn.addEventListener("click", () => { 
+        adArea.style.display = "none";
+        drawCount = 0; // リセット
+
+
 
 
       // =========================
@@ -399,15 +406,6 @@ watchAdBtn.addEventListener("click", async ()=>{
 
   // 制限解除
   localStorage.removeItem("lastUsedDate");
-
-
-
-const watchAdBtn = document.getElementById("watchAdBtn");
-
-watchAdBtn.addEventListener("click", () => {
-  adArea.style.display = "none";
-  drawCount = 0; // リセット
-});
 
 
 
