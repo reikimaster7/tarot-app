@@ -31,6 +31,31 @@ h1 {
   text-align: center;
 }
 
+/* メニュー */
+
+.menu {
+  margin-top: 40px;
+}
+
+.menu button {
+  font-size: 20px;
+  padding: 16px 30px;
+  border-radius: 15px;
+  border: none;
+
+  background: linear-gradient(45deg, #6b00ff, #b983ff);
+  color: white;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #b983ff;
+}
+
+
 /* ボタン */
 #drawBtn {
   background: linear-gradient(45deg, #6b00ff, #b983ff);

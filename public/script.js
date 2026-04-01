@@ -1,6 +1,12 @@
 console.log("JS読み込みOK");
 
 
+if(!document.getElementById("drawBtn")) {
+  // タロット画面じゃないなら何もしない
+  console.log("メニュー画面なのでJS停止");
+} else {
+
+
 // =========================
 // ① DOM取得
 // =========================
@@ -410,3 +416,7 @@ watchAdBtn.textContent = "広告を見る";
 watchAdBtn.disabled = false;
 
 });
+
+
+
+}
