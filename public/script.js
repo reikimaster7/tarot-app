@@ -400,20 +400,55 @@ watchAdBtn.addEventListener("click", async ()=>{
   // 制限解除
   localStorage.removeItem("lastUsedDate");
 
+
+
+const watchAdBtn = document.getElementById("watchAdBtn");
+
+watchAdBtn.addEventListener("click", () => {
+  adArea.style.display = "none";
+  drawCount = 0; // リセット
+});
+
+
+
+
     // 表示変更 ← ★ここ
-  document.getElementById("adText").textContent = "占うボタンを押せます";
-  //adModal.classList.add("hidden");
-  adModal.style.display = "block"; // 左上に出すだけ
+  //document.getElementById("adText").textContent = "占うボタンを押せます";
+  
+  // コメントアウト　始まり　//
+ //adModal.classList.add("hidden");
+  //adModal.style.display = "block"; // 左上に出すだけ
   // ボタン消す
-  watchAdBtn.style.display = "none";
+  //watchAdBtn.style.display = "none";
   // ✔ 表示 ← ★これ
-  document.getElementById("adDone").style.display = "block";
-　isDrawing = false; // ← ★これ重要
+  //document.getElementById("adDone").style.display = "block";
+　//isDrawing = false; // ← ★これ重要
 
-  //drawThree(); // ← 自動再実行
+  //  //drawThree(); // ← 自動再実行
 
-watchAdBtn.textContent = "広告を見る";
-watchAdBtn.disabled = false;
+//watchAdBtn.textContent = "広告を見る";
+//watchAdBtn.disabled = false;
+
+//コメントアウト　終わり //
+
+let drawCount = 0;
+
+const drawBtn = document.getElementById("drawBtn");
+const adArea = document.getElementById("adArea");
+
+drawBtn.addEventListener("click", () => {
+  drawCount++;
+
+  if (drawCount >= 2) {
+    // 2回目以降
+    adArea.style.display = "flex";
+  } else {
+    // 1回目は普通に占う処理
+    console.log("占い実行");
+  }
+});
+
+
 
 });
 
