@@ -267,13 +267,14 @@ console.log("adModal:", adModal);
  console.log("pass003");
  console.log(resultEl.innerHTML);
   resultEl.innerHTML = "🔮 シャッフル中...";
-
+console.log("ここまで来てる①");
   const results = [];
 
  console.log("pass004");
  console.log(resultEl.innerHTML);
 
 setTimeout(() => {
+  console.log("ここまで来てる②");
 
   console.log("シャッフル開始");
 console.log("pass005");
