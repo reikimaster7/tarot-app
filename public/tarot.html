@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔮 タロット占い 🔮</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+
+<body> <!-- ⭐ これ追加！！！！ -->
+<header>
+  <h1>🔮 タロット占い 🔮</h1>
+
+<h2>🔮 総合メッセージ</h2>
+<p id="summary"></p>
+
+</header>
+
+
+<main>
+
+  <!-- ✅ 広告モーダル（これ1個だけ） -->
+  <!--<div id="adModal" class="hidden">
+    <div class="adContent">
+      <p>📺 広告を見ると結果が表示されます</p>
+      <p>広告を見るともう一度占えます</p>
+      <button id="watchAdBtn">広告を見る</button>
+      <button id="closeAdBtn">閉じる</button>
+    </div>
+  </div>
+-->
+  
+  <div id="adModal" class="hidden">
+  <div class="modal-content">
+　　　<p id="adText">広告を見るともう一度占えます</p>
+　　　<p id="adDone" style="display:none;">✔ 視聴完了</p>
+    <button id="watchAdBtn">広告を見る</button>
+  </div>
+</div>
+
+  <div id="questionArea">
+    <input id="questionInput" type="text" placeholder="悩みや質問を入力してください…">
+  </div>
+
+  <button id="drawBtn" type="button">占う</button>
+
+  <div id="result"></div>
+  
+
+</main>
+
+
+
+<!-- <p id="loading">✨ AIが読み解いています<span class="dots"></span></p> -->
+
+<!-- モーダル -->
+<div id="modal">
+  <div id="modalContent">
+    <img id="modalImg" alt="タロットカード">
+    <h2 id="modalName"></h2>
+    <p id="modalText"></p>
+    <button id="closeBtn" type="button">閉じる</button>
+    <p id="adDone">✔ 視聴完了</p>
+  </div>
+</div>
+
+</body>
+
+
+</html>
