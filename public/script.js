@@ -281,7 +281,7 @@ console.log("pass005");
 console.log(resultEl.innerHTML);
 console.log("子要素数:", resultEl.children.length);
   resultEl.innerHTML = "";
-  console.log("cardEl:", cardEl);
+ // console.log("cardEl:", cardEl);
 
   const draw = shuffle(cards).slice(0,3);
   const positions = ["過去","現在","未来"];
