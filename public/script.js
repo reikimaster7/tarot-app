@@ -242,7 +242,7 @@ function drawThree(){
 console.log("adModal:", adModal);
 
   // ⭐ 広告UIを即消す
-  adModal.style.display = "none";
+  //adModal.style.display = "none";
 
 
 
