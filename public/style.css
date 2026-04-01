@@ -429,7 +429,7 @@ h1 {
 } */
 
 /* 画面左上に小さく表示するスタイル */
-#adModal {
+/*#adModal {
   position: fixed;
   top: 20px;
   left: 20px;
@@ -443,7 +443,7 @@ h1 {
   z-index: 9999;
 
   display: none; /* 最初は非表示 */
-}
+}  */
 
 
 #adModal.active {

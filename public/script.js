@@ -22,6 +22,7 @@ const closeBtn = document.getElementById("closeBtn");
 // 広告モーダル
 const adModal = document.getElementById("adModal");
 const watchAdBtn = document.getElementById("watchAdBtn");
+const adArea = document.getElementById("adArea");
 
 // =========================
 // ② 状態管理
@@ -364,7 +365,7 @@ console.log("pass005");
 
         document.getElementById("adText").textContent = "広告を見るともう一度占えます";
         document.getElementById("adDone").style.display = "none";
-        watchAdBtn.style.display = "block";
+      //  watchAdBtn.style.display = "block";
         watchAdBtn.disabled = false;
         watchAdBtn.textContent = "広告を見る";
 
