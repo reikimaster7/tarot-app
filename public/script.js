@@ -279,6 +279,7 @@ setTimeout(() => {
   console.log("シャッフル開始");
 console.log("pass005");
 console.log(resultEl.innerHTML);
+console.log("子要素数:", resultEl.children.length);
   resultEl.innerHTML = "";
 
   const draw = shuffle(cards).slice(0,3);
