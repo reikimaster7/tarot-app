@@ -426,6 +426,19 @@ watchAdBtn.addEventListener("click", async ()=>{
   // 制限解除
   localStorage.removeItem("lastUsedDate");
 
+  // コメントアウト　始まり　//
+ adModal.classList.add("hidden");
+  adModal.style.display = "block"; // 左上に出すだけ
+  // ボタン消す
+  watchAdBtn.style.display = "none";
+  // ✔ 表示 ← ★これ
+  document.getElementById("adDone").style.display = "block";
+　isDrawing = false; // ← ★これ重要
+
+  //  //drawThree(); // ← 自動再実行
+
+  watchAdBtn.textContent = "広告を見る";
+watchAdBtn.disabled = false;
 
 
 
