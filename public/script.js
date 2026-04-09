@@ -22,8 +22,8 @@ const closeBtn = document.getElementById("closeBtn");
 // 広告モーダル
 const adModal = document.getElementById("adModal");
 const watchAdBtn = document.getElementById("watchAdBtn");
-const adArea = document.getElementById("adArea");
-
+//const adArea = document.getElementById("adArea");
+const adOverlay = document.getElementById("adOverlay");
 // =========================
 // ② 状態管理
 // =========================
@@ -481,7 +481,8 @@ drawBtn.addEventListener("click", () => {
 
   if (drawCount >= 2) {
     // 2回目以降
-    adArea.style.display = "flex"; //重ねて表示
+    // adArea.style.display = "flex"; //重ねて表示
+    adOverlay.style.display = "flex"; //重ねて表示
     drawBtn.style.visibility = "hidden";   // ← 消す
     adOverlay.style.display = "flex";      // ← 出す
   } else {
