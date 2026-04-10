@@ -372,8 +372,8 @@ console.log("子要素数:", resultEl.children.length);
 
         document.getElementById("adText").textContent = "広告を見るともう一度占えます";
         document.getElementById("adDone").style.display = "none";
-      //  watchAdBtn.style.display = "block";
-        watchAdBtn.disabled = false;
+        watchAdBtn.style.display = "block";
+        //watchAdBtn.disabled = false;
         watchAdBtn.textContent = "広告を見る";
 
       //  document.getElementById("loading").remove();
