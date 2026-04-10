@@ -417,6 +417,21 @@ console.log("子要素数:", resultEl.children.length);
 }
 
 
+
+//広告モーダルを出す関数と消す関数 
+
+function showAd() {
+  document.getElementById("drawBtn").style.display = "none";
+  document.getElementById("adOverlay").style.display = "flex";
+}
+
+function hideAd() {
+  document.getElementById("drawBtn").style.display = "block";
+  document.getElementById("adOverlay").style.display = "none";
+}
+
+
+
 // =========================
 // ⑥ イベント
 // =========================
@@ -485,6 +500,10 @@ drawBtn.addEventListener("click", () => {
     adOverlay.style.display = "flex"; //重ねて表示
     drawBtn.style.visibility = "hidden";   // ← 消す
     adOverlay.style.display = "flex";      // ← 出す
+
+    showAd();
+
+
   } else {
     // 1回目は普通に占う処理
     console.log("占い実行");
@@ -492,6 +511,8 @@ drawBtn.addEventListener("click", () => {
     adOverlay.style.display = "none";
     drawBtn.style.visibility = "visible";  // ← 戻す
 　　adOverlay.style.display = "none";
+
+    hideAd();
   }
 });
 
