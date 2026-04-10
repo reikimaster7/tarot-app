@@ -206,7 +206,7 @@ function saveUsed(){
 function showAdOrPay(){
   console.log("広告モーダル出す");
 //  adModal.style.display = "flex";
-    showAd();
+    hideAd();
     adModal.style.display = "block"; // 左上に出すだけ
 }
 
