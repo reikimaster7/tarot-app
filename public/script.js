@@ -29,6 +29,8 @@ const adOverlay = document.getElementById("adOverlay");
 // =========================
 
 let isDrawing = false;
+// 初期状態では広告UIを隠す
+hideAd();
 
 
 // =========================
